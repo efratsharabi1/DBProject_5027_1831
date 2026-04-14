@@ -2,21 +2,21 @@
 
 ## Efrat Sharabi
 ## Elishava Shnur
-[השם שלך]  
-[שם נוסף אם יש]  
 ---
 
 ## Table of Contents
-- Phase 1: Design and Build the Database
-  - Introduction
-  - System Screens (AI Studio)
-  - ERD (Entity-Relationship Diagram)
-  - DSD (Data Structure Diagram)
-  - Design Decisions
-  - SQL Scripts
-  - Data Generation
-  - Backup
 
+- [Phase 1: Design and Build the Database](#phase-1-design-and-build-the-database)
+  - [Introduction](#introduction)
+  - [System Screens (AI Studio)](#system-screens-ai-studio)
+  - [ERD (Entity-Relationship Diagram)](#erd-entity-relationship-diagram)
+  - [DSD (Data Structure Diagram)](#dsd-data-structure-diagram)
+  - [Design Decisions](#design-decisions)
+  - [SQL Scripts](#sql-scripts)
+  - [Data Generation](#data-generation)
+  - [Backup](#backup)
+
+- [Phase 2: Integration](#phase-2-integration)
 ---
 
 # Phase 1: Design and Build the Database
@@ -81,11 +81,15 @@ The system aims to:
 
 Below are the system screens designed using Google AI Studio:
 
-📸 [הכניסי כאן צילומי מסך]
+<img width="1388" height="827" alt="image" src="https://github.com/user-attachments/assets/b9ecce92-8bab-40a7-9b74-ef314591de02" />
+<img width="604" height="848" alt="image" src="https://github.com/user-attachments/assets/9b68f15a-937d-4b7d-8bc0-731177d31510" />
+<img width="1349" height="803" alt="image" src="https://github.com/user-attachments/assets/d4c85841-7457-4715-9a29-daa0f6e51743" />
+<img width="1413" height="764" alt="image" src="https://github.com/user-attachments/assets/23b7c7e2-cd78-4e8f-9d10-7b31df02fd31" />
+<img width="733" height="774" alt="image" src="https://github.com/user-attachments/assets/0ab54641-f42b-4643-ae45-439f91115eab" />
+<img width="1351" height="777" alt="image" src="https://github.com/user-attachments/assets/874dfc2f-15c2-483f-968b-b57a6a5c27c4" />
 
 🔗 AI Studio Link:  
-[הכניסי כאן לינק]
-
+https://ai.studio/apps/e4a2e6ab-45ce-4670-983d-868dfc48ea7d
 ---
 
 ## ERD (Entity-Relationship Diagram)
@@ -94,8 +98,7 @@ Below are the system screens designed using Google AI Studio:
 ---
 
 ## DSD (Data Structure Diagram)
-
-📸 [הכניסי תמונת DSD]
+<img width="1139" height="636" alt="image" src="https://github.com/user-attachments/assets/56ad16e1-0053-48cb-bcf2-0f6f636b2db1" />
 
 ---
 
@@ -124,17 +127,19 @@ These decisions ensure:
 
 ## SQL Scripts
 
-### Create Tables Script
-📜 View: `createTables.sql`
+Provide the following SQL scripts:
 
-### Insert Data Script
-📜 View: `insertTables.sql`
+- **Create Tables Script** – The SQL script for creating the database tables is available in the repository:  
+📜 [View createTables.sql](createTables.sql)
 
-### Drop Tables Script
-📜 View: `dropTables.sql`
+- **Insert Data Script** – The SQL script for inserting data into the database tables is available in the repository:  
+📜 [View insertTables.sql](insertTables.sql)
 
-### Select All Script
-📜 View: `selectAll.sql`
+- **Drop Tables Script** – The SQL script for dropping all tables is available in the repository:  
+📜 [View dropTables.sql](dropTables.sql)
+
+- **Select All Data Script** – The SQL script for selecting all data from the tables is available in the repository:  
+📜 [View selectAll.sql](selectAll.sql)
 
 ---
 
@@ -190,5 +195,3 @@ Backup files are stored with date and time.
 ---
 
 # Phase 2: Integration
-
-(To be completed in the next phase)

@@ -169,8 +169,17 @@ Provide the following SQL scripts:
 <img width="916" height="442" alt="image" src="https://github.com/user-attachments/assets/e3de391b-128e-4113-afee-cd23df88cb3a" />
 
 
+**Entering a data to volunteer table**
 
-
+- volunteer id scope 1-100 📄 View [volunteer_MOCK_DATA.csv](Phase1/mockData/volunteer_MOCK_DATA.csv)
+- Phone values generated uniquely
+- Email values generated uniquely
+- Birthday values before current date
+- recruitment_date values after Birthday and before current date
+- Is_Active values: Y / N
+<img width="1643" height="614" alt="image" src="https://github.com/user-attachments/assets/a63eee39-939e-4abe-8f98-8744525f8a9a" />
+<img width="812" height="347" alt="image" src="https://github.com/user-attachments/assets/189b4601-2979-4595-ac23-e08f6a7d2eb4" />
+<img width="1493" height="654" alt="image" src="https://github.com/user-attachments/assets/0fdd69a6-3a12-4731-85d1-966a0ca950a6" />
 
 ---
 

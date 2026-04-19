@@ -147,7 +147,7 @@ Provide the following SQL scripts:
 
 ### 1. Mockaroo (CSV)
 
-Entering a data to call table
+**Entering a data to call table**
 
 - call id scope 1-500 📄 View [call_MOCK_DATA.csv](Phase1/mockData/call_MOCK_DATA.csv)
 - Type_ID values in scope 1-6
@@ -158,11 +158,17 @@ Entering a data to call table
 <img width="782" height="358" alt="image" src="https://github.com/user-attachments/assets/ec46be0a-ce38-4fb9-9b11-0cc4cf652bec" />
 <img width="1324" height="676" alt="image" src="https://github.com/user-attachments/assets/39e4cb70-a91b-4e1d-9a62-25630217aa47" />
 
-Entering a data to skill table
 
-- skill id scope 1-50 📄 View [skill_MOCK_DATA.csv](Phase1/mockData/skill_MOCK_DATA.csv)
+**Entering a data to skill table**
+
+- skill id scope 1-10 📄 View [skill_MOCK_DATA.csv](Phase1/mockData/skill_MOCK_DATA.csv)
 - Difficulty_Level values between 1-5
 - Requires_Certificate values Y/N
+<img width="1497" height="534" alt="image" src="https://github.com/user-attachments/assets/ce125177-5084-4811-a70f-18638f510e02" />
+<img width="771" height="341" alt="image" src="https://github.com/user-attachments/assets/170cca3b-702a-4bd9-90a1-187e239f4145" />
+<img width="916" height="442" alt="image" src="https://github.com/user-attachments/assets/e3de391b-128e-4113-afee-cd23df88cb3a" />
+
+
 
 
 

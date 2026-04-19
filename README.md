@@ -130,16 +130,16 @@ These decisions ensure:
 Provide the following SQL scripts:
 
 - **Create Tables Script** – The SQL script for creating the database tables is available in the repository:  
-📜 [View CreateTable.sql](scripts/CreateTable.sql)
+📜 [View CreateTable.sql](Phase1/scripts/CreateTable.sql)
 
 - **Insert Data Script** – The SQL script for inserting data into the database tables is available in the repository:  
-📜 [View InsertTable.sql](scripts/InsertTable.sql)
+📜 [View InsertTable.sql](Phase1/scripts/InsertTable.sql)
 
 - **Drop Tables Script** – The SQL script for dropping all tables is available in the repository:  
-📜 [View DropTable.sql](scripts/DropTable.sql)
+📜 [View DropTable.sql](Phase1/scripts/DropTable.sql)
 
 - **Select All Data Script** – The SQL script for selecting all data from the tables is available in the repository:  
-📜 [View SelectAll.sql](scripts/SelectAll.sql)
+📜 [View SelectAll.sql](Phase1/scripts/SelectAll.sql)
 
 ---
 

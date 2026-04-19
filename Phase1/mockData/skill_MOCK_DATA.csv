@@ -1,0 +1,11 @@
+Skill_ID,Description,Requires_Certificate,Difficulty_Level,Skill_Name
+1,Duis mattis egestas metus.,N,5,Driving
+2,Nulla suscipit ligula in lacus.,Y,3,Locksmith
+3,Nulla justo.,N,5,Rescue
+4,Duis ac nibh.,Y,1,Language
+5,"",N,4,Technical
+6,Maecenas tincidunt lacus at velit.,Y,3,Navigation
+7,"",N,5,Medical
+8,Quisque ut erat.,N,3,Mechanical
+9,Nullam varius.,Y,2,Communication
+10,Cras pellentesque volutpat dui.,N,4,Support

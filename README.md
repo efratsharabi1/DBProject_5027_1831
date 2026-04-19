@@ -13,7 +13,7 @@
   - [DSD (Data Structure Diagram)](#dsd-data-structure-diagram)
   - [Design Decisions](#design-decisions)
   - [SQL Scripts](#sql-scripts)
-  - [Data Generation](#data-generation)
+  - [Data](#data)
   - [Backup](#backup)
 
 - [Phase 2: Integration](#phase-2-integration)
@@ -143,42 +143,40 @@ Provide the following SQL scripts:
 
 ---
 
-## Data Generation
+## Data
 
-Three different methods were used to populate the database:
+### 1. Mockaroo (CSV)
+
+Entering a data to call table
+
+- call id scope 1-500 📄 View [call_MOCK_DATA.csv](Phase1/mockData/call_MOCK_DATA.csv)
+- Type_ID values in scope 1-6
+- Status values: Open / Closed / InProgress
+- Call_Time generated in format HH:mm
+- Description values limited to valid length
+<img width="1600" height="618" alt="image" src="https://github.com/user-attachments/assets/209f4814-08e3-4f0f-9d9b-de01ae3e23f2" />
+<img width="782" height="358" alt="image" src="https://github.com/user-attachments/assets/ec46be0a-ce38-4fb9-9b11-0cc4cf652bec" />
+<img width="1324" height="676" alt="image" src="https://github.com/user-attachments/assets/39e4cb70-a91b-4e1d-9a62-25630217aa47" />
+
+Entering a data to skill table
+
+- skill id scope 1-50 📄 View [skill_MOCK_DATA.csv](Phase1/mockData/skill_MOCK_DATA.csv)
+- Difficulty_Level values between 1-5
+- Requires_Certificate values Y/N
+
+
 
 ---
 
-### 1. Manual Insert (SQL)
+### 2. Manual Insert (SQL)
 
 Data was inserted manually using SQL commands.
-
 📸 [צילום מסך של INSERT ידני]
-
----
-
-### 2. Mockaroo (CSV / SQL)
-
-Mockaroo was used to generate large datasets:
-- CALL table (20,000 rows)
-- Additional tables (500+ rows)
-
-📸 [צילום מסך של Mockaroo]
-
 ---
 
 ### 3. CSV Import
 
 CSV files were imported into the database using pgAdmin.
-
-📸 [צילום מסך של Import]
-
----
-
-### Data Volume Requirements
-
-- Each table contains at least **500 records**
-- Two tables contain at least **20,000 records**
 
 ---
 

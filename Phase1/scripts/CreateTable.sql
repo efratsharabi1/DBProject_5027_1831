@@ -23,7 +23,7 @@ CREATE TABLE VOLUNTEER
 CREATE TABLE SKILL
 (
   Skill_ID INT NOT NULL,
-  Description VARCHAR(30) NOT NULL,
+  Description TEXT,
   Requires_Certificate CHAR(1) NOT NULL,
   Difficulty_Level INT NOT NULL,
   Skill_Name VARCHAR(15) NOT NULL,

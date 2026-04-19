@@ -76,7 +76,7 @@ CREATE TABLE CALL
   Phone INT NOT NULL,
   Call_Date DATE NOT NULL,
   Latitude INT NOT NULL,
-  Description VARCHAR(200) NOT NULL,
+  Description TEXT,
   Type_ID INT NOT NULL,
   PRIMARY KEY (Call_ID),
   FOREIGN KEY (Type_ID) REFERENCES TYPE(Type_ID),

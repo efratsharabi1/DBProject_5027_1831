@@ -227,7 +227,7 @@ Python was used to insert a large amount of valid data into relationship tables 
   - `SCHEDULED`
   - `SKILL_CATEGORY`
 
-- SQL insert script used: 📄 View [insertTables.sql](Phase1/scripts/insertTables.sql)
+- SQL insert script used: 📄 View [insertTables.sql](Phase1/scripts/InsertTable.sql)
 
 - Tables were filled according to constraints:
   - valid foreign keys

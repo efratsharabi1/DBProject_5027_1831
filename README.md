@@ -247,7 +247,7 @@ A full backup of the database was created using pgAdmin.
 
 Backup files are stored with date and time.
 <img width="895" height="706" alt="image" src="https://github.com/user-attachments/assets/37e564b4-efba-46ef-a8bd-ad7506443fb1" />
-
+<img width="1179" height="693" alt="image" src="https://github.com/user-attachments/assets/969ec63d-0470-490c-87bd-9f65bfcbcf7e" />
 
 ---
 

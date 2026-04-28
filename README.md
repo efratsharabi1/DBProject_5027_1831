@@ -246,11 +246,9 @@ Python was used to insert a large amount of valid data into relationship tables 
 A full backup of the database was created using pgAdmin.
 
 Backup files are stored with date and time.
+<img width="895" height="706" alt="image" src="https://github.com/user-attachments/assets/37e564b4-efba-46ef-a8bd-ad7506443fb1" />
 
-📸 [צילום מסך של Backup]
-
-📸 [צילום מסך של Restore]
 
 ---
 
-# Phase 2: Integration
+# Phase 2: SQL And 

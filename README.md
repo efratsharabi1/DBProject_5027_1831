@@ -16,7 +16,7 @@
   - [Data](#data)
   - [Backup](#backup)
 
-- [Phase 2: SQL And Constraints](# Phase 2: SQL And Constraints)
+- [Phase 2: SQL And Constraints](#phase-2-SQL-And-Constraints)
 ---
 
 # Phase 1: Design and Build the Database

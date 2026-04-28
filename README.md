@@ -1,7 +1,7 @@
 # Volunteers Organization Database - Yedidim
 
 ## Efrat Sharabi
-## Elishava Shnur
+## Elishava Katzin
 ---
 
 ## Table of Contents

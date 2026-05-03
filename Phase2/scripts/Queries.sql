@@ -455,3 +455,36 @@ JOIN VOLUNTEER v
     ON vt.Volunteer_ID = v.Volunteer_ID
 WHERE v.Is_Active = 'N';
 
+/* ---------------------------------------------------------
+   Delete 3:
+   Delete volunteer-call records of inactive volunteers
+   --------------------------------------------------------- */
+
+SELECT
+    vc.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.Is_Active,
+    vc.Call_ID
+FROM VOLUNTEER_CALL vc
+JOIN VOLUNTEER v
+    ON vc.Volunteer_ID = v.Volunteer_ID
+WHERE v.Is_Active = 'N';
+
+
+DELETE FROM VOLUNTEER_CALL vc
+USING VOLUNTEER v
+WHERE vc.Volunteer_ID = v.Volunteer_ID
+  AND v.Is_Active = 'N';
+
+
+SELECT
+    vc.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.Is_Active,
+    vc.Call_ID
+FROM VOLUNTEER_CALL vc
+JOIN VOLUNTEER v
+    ON vc.Volunteer_ID = v.Volunteer_ID
+WHERE v.Is_Active = 'N';

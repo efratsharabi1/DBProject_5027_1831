@@ -935,3 +935,36 @@ If an invalid call with `Call_Time = NULL` is inserted, the database rejects the
 
 ---
 
+---
+
+## Indexes
+
+### Index 1 – VOLUNTEER_CALL (Volunteer_ID)
+
+#### Description
+
+An index was created on the `Volunteer_ID` column in the `VOLUNTEER_CALL` table.
+
+This improves query performance when filtering calls by volunteer.
+
+---
+
+### Index 2 – CALL (Type_ID)
+
+#### Description
+
+An index was created on the `Type_ID` column in the `CALL` table.
+
+This improves performance when filtering calls by type.
+
+---
+
+### Index 3 – VOLUNTEER (Is_Active)
+
+#### Description
+
+An index was created on the `Is_Active` column in the `VOLUNTEER` table.
+
+This improves performance when filtering active volunteers.
+
+---

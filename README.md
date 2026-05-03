@@ -412,3 +412,95 @@ The JOIN with GROUP BY query is usually more efficient because it joins the tabl
 The subquery version may execute the COUNT operation separately for each volunteer, and the same subquery appears more than once, which can increase execution time.
 
 Therefore, the JOIN and GROUP BY approach is more efficient in this case.
+
+---
+
+### Query 3 – Calls Analysis by Month, Type and Status
+
+#### Description
+
+This query analyzes the number of calls by year and month, grouped by call type and status.
+
+The purpose of this query is to help the organization identify trends over time, such as busy periods, common types of calls, and the distribution of call statuses.
+
+---
+
+#### Query 3A – Using GROUP BY
+
+```sql
+SELECT
+    EXTRACT(YEAR FROM c.Call_Date) AS Year,
+    EXTRACT(MONTH FROM c.Call_Date) AS Month,
+    t.Type_Name,
+    c.Status,
+    COUNT(c.Call_ID) AS Total_Calls
+FROM call c
+JOIN TYPE t
+    ON c.Type_ID = t.Type_ID
+GROUP BY
+    EXTRACT(YEAR FROM c.Call_Date),
+    EXTRACT(MONTH FROM c.Call_Date),
+    t.Type_Name,
+    c.Status
+ORDER BY
+    Year,
+    Month,
+    Total_Calls DESC;
+```
+
+**Execution Screenshot:**  
+<img src="Phase2/screenshots/query3a_run.png" width="700"/>
+
+**Result Screenshot:**  
+<img src="Phase2/screenshots/query3a_result.png" width="700"/>
+
+---
+
+#### Query 3B – Using Subquery
+
+```sql
+SELECT
+    q.Year,
+    q.Month,
+    q.Type_Name,
+    q.Status,
+    q.Total_Calls
+FROM (
+    SELECT
+        EXTRACT(YEAR FROM c.Call_Date) AS Year,
+        EXTRACT(MONTH FROM c.Call_Date) AS Month,
+        t.Type_Name,
+        c.Status,
+        COUNT(c.Call_ID) AS Total_Calls
+    FROM call c
+    JOIN TYPE t
+        ON c.Type_ID = t.Type_ID
+    GROUP BY
+        EXTRACT(YEAR FROM c.Call_Date),
+        EXTRACT(MONTH FROM c.Call_Date),
+        t.Type_Name,
+        c.Status
+) q
+ORDER BY
+    q.Year,
+    q.Month,
+    q.Total_Calls DESC;
+```
+
+**Execution Screenshot:**  
+<img src="Phase2/screenshots/query3b_run.png" width="700"/>
+
+**Result Screenshot:**  
+<img src="Phase2/screenshots/query3b_result.png" width="700"/>
+
+---
+
+#### Efficiency Explanation
+
+Both queries return the same analysis of calls grouped by year, month, type, and status.
+
+The GROUP BY query performs the aggregation directly and is therefore more efficient.
+
+The subquery version wraps the same logic inside another query, which adds unnecessary overhead without improving performance.
+
+Therefore, the GROUP BY approach is more efficient in this case.

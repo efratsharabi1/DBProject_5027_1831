@@ -288,7 +288,7 @@ ORDER BY v.Last_Name, v.First_Name;
 <img src="Phase2/screenshots/query1a_run.png" width="700"/>
 
 **Result Screenshot:**  
-<img src="Phase2/screenshots/query1a_result.png" width="700"/>
+<img src="screenshots/query1a_result.png" width="700"/>
 
 ---
 

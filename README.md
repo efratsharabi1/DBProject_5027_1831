@@ -504,3 +504,82 @@ The GROUP BY query performs the aggregation directly and is therefore more effic
 The subquery version wraps the same logic inside another query, which adds unnecessary overhead without improving performance.
 
 Therefore, the GROUP BY approach is more efficient in this case.
+
+---
+
+### Query 4 – Active Volunteers With Certified Skills
+
+#### Description
+
+This query returns all active volunteers who have at least one skill that requires a certificate.
+
+The purpose of this query is to identify qualified volunteers who are allowed to perform tasks that require official certification.
+
+---
+
+#### Query 4A – Using JOIN
+
+```sql
+SELECT DISTINCT
+    v.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.Phone,
+    v.City
+FROM VOLUNTEER v
+JOIN VOLUNTEER_SKILL vs
+    ON v.Volunteer_ID = vs.Volunteer_ID
+JOIN SKILL s
+    ON vs.Skill_ID = s.Skill_ID
+WHERE v.Is_Active = 'Y'
+  AND s.Requires_Certificate = 'Y'
+ORDER BY v.Last_Name, v.First_Name;
+```
+
+**Execution Screenshot:**  
+<img src="Phase2/screenshots/query4a_run.png" width="700"/>
+
+**Result Screenshot:**  
+<img src="Phase2/screenshots/query4a_result.png" width="700"/>
+
+---
+
+#### Query 4B – Using EXISTS
+
+```sql
+SELECT
+    v.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.Phone,
+    v.City
+FROM VOLUNTEER v
+WHERE v.Is_Active = 'Y'
+  AND EXISTS (
+      SELECT 1
+      FROM VOLUNTEER_SKILL vs
+      JOIN SKILL s
+          ON vs.Skill_ID = s.Skill_ID
+      WHERE vs.Volunteer_ID = v.Volunteer_ID
+        AND s.Requires_Certificate = 'Y'
+  )
+ORDER BY v.Last_Name, v.First_Name;
+```
+
+**Execution Screenshot:**  
+<img src="Phase2/screenshots/query4b_run.png" width="700"/>
+
+**Result Screenshot:**  
+<img src="Phase2/screenshots/query4b_result.png" width="700"/>
+
+---
+
+#### Efficiency Explanation
+
+Both queries return the same result: active volunteers who have at least one skill that requires a certificate.
+
+The JOIN query combines multiple tables and may produce duplicate rows, which requires using DISTINCT.
+
+The EXISTS query checks only whether a matching record exists, and stops searching as soon as one is found.
+
+Therefore, the EXISTS query is more efficient in this case.

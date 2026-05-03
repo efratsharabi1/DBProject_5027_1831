@@ -883,3 +883,55 @@ After running `COMMIT`, the change is saved permanently in the database.
 
 ---
 
+---
+
+## Constraints
+
+### Constraint 1 – Training Duration Limit
+
+#### Description
+
+This constraint was added to the `TRAINING` table using `ALTER TABLE`.
+
+The constraint ensures that the duration of a training cannot be more than 10 hours.
+
+If an invalid training with `Duration_Hours` greater than 10 is inserted, the database rejects the insert and returns an error.
+
+**Alter Table Screenshot:** <img src="Phase2/screenshots/constraint1_alter.png" width="700"/>
+
+**Error Screenshot:** <img src="Phase2/screenshots/constraint1_error.png" width="700"/>
+
+---
+
+### Constraint 2 – Positive Volunteer Phone Number
+
+#### Description
+
+This constraint was added to the `VOLUNTEER` table using `ALTER TABLE`.
+
+The constraint ensures that a volunteer phone number must be positive.
+
+If an invalid volunteer with a negative phone number is inserted, the database rejects the insert and returns an error.
+
+**Alter Table Screenshot:** <img src="Phase2/screenshots/constraint2_alter.png" width="700"/>
+
+**Error Screenshot:** <img src="Phase2/screenshots/constraint2_error.png" width="700"/>
+
+---
+
+### Constraint 3 – Call Time Cannot Be Null
+
+#### Description
+
+This constraint was added to the `CALL` table using `ALTER TABLE`.
+
+The constraint ensures that every call must have a call time and that `Call_Time` cannot be `NULL`.
+
+If an invalid call with `Call_Time = NULL` is inserted, the database rejects the insert and returns an error.
+
+**Alter Table Screenshot:** <img src="Phase2/screenshots/constraint3_alter.png" width="700"/>
+
+**Error Screenshot:** <img src="Phase2/screenshots/constraint3_error.png" width="700"/>
+
+---
+

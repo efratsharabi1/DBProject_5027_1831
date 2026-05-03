@@ -583,3 +583,160 @@ The JOIN query combines multiple tables and may produce duplicate rows, which re
 The EXISTS query checks only whether a matching record exists, and stops searching as soon as one is found.
 
 Therefore, the EXISTS query is more efficient in this case.
+---
+
+### Query 5 – Open Calls With Date Breakdown
+
+#### Description
+
+This query returns all open calls in the system, including the call type and a breakdown of the call date into year, month, and day.
+
+The purpose of this query is to help the dispatch center monitor open emergency calls and handle them according to the most recent call date and time.
+
+---
+
+#### Query 5 – Open Calls
+
+```sql
+SELECT
+    c.Call_ID,
+    c.Phone,
+    c.Call_Date,
+    EXTRACT(YEAR FROM c.Call_Date) AS Call_Year,
+    EXTRACT(MONTH FROM c.Call_Date) AS Call_Month,
+    EXTRACT(DAY FROM c.Call_Date) AS Call_Day,
+    c.Call_Time,
+    t.Type_Name,
+    c.Status
+FROM "CALL" c
+JOIN TYPE t
+    ON c.Type_ID = t.Type_ID
+WHERE c.Status = 'Open'
+ORDER BY c.Call_Date DESC, c.Call_Time DESC;
+```
+
+**Execution Screenshot:** <img src="Phase2/screenshots/query5_run.png" width="700"/>
+
+**Result Screenshot:** <img src="Phase2/screenshots/query5_result.png" width="700"/>
+
+---
+
+### Query 6 – Trainings With Registered Volunteers
+
+#### Description
+
+This query returns all trainings with the number of registered volunteers and the number of remaining available places.
+
+The purpose of this query is to help management track participation in trainings and identify which trainings still have available space.
+
+---
+
+#### Query 6 – Training Participation
+
+```sql
+SELECT
+    tr.Training_ID,
+    tr.Training_Name,
+    tr.Duration_Hours,
+    tr.Max_Participant,
+    COUNT(vt.Volunteer_ID) AS Registered_Volunteers,
+    tr.Max_Participant - COUNT(vt.Volunteer_ID) AS Free_Places
+FROM TRAINING tr
+LEFT JOIN VOLUNTEER_TRAINING vt
+    ON tr.Training_ID = vt.Training_ID
+GROUP BY
+    tr.Training_ID,
+    tr.Training_Name,
+    tr.Duration_Hours,
+    tr.Max_Participant
+ORDER BY Registered_Volunteers DESC;
+```
+
+**Execution Screenshot:** <img src="Phase2/screenshots/query6_run.png" width="700"/>
+
+**Result Screenshot:** <img src="Phase2/screenshots/query6_result.png" width="700"/>
+
+---
+
+### Query 7 – Calls Summary By Type And Status
+
+#### Description
+
+This query returns a summary of calls grouped by call type and status.
+
+The purpose of this query is to provide a management report that shows how many calls exist for each type and status, such as Open, Closed, and InProgress.
+
+---
+
+#### Query 7 – Calls Summary
+
+```sql
+SELECT
+    t.Type_ID,
+    t.Type_Name,
+    c.Status,
+    COUNT(c.Call_ID) AS Total_Calls
+FROM TYPE t
+JOIN "CALL" c
+    ON t.Type_ID = c.Type_ID
+GROUP BY
+    t.Type_ID,
+    t.Type_Name,
+    c.Status
+ORDER BY
+    t.Type_Name,
+    c.Status;
+```
+
+**Execution Screenshot:** <img src="Phase2/screenshots/query7_run.png" width="700"/>
+
+**Result Screenshot:** <img src="Phase2/screenshots/query7_result.png" width="700"/>
+
+---
+
+### Query 8 – Monthly Volunteer Activity
+
+#### Description
+
+This query returns the number of closed calls handled by each volunteer, grouped by year and month.
+
+The purpose of this query is to help management track volunteer activity over time and evaluate monthly performance.
+
+---
+
+#### Query 8 – Monthly Volunteer Activity
+
+```sql
+SELECT
+    v.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.City,
+    EXTRACT(YEAR FROM c.Call_Date) AS Activity_Year,
+    EXTRACT(MONTH FROM c.Call_Date) AS Activity_Month,
+    COUNT(c.Call_ID) AS Total_Handled_Calls
+FROM VOLUNTEER v
+JOIN VOLUNTEER_CALL vc
+    ON v.Volunteer_ID = vc.Volunteer_ID
+JOIN "CALL" c
+    ON vc.Call_ID = c.Call_ID
+WHERE c.Status = 'Closed'
+GROUP BY
+    v.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.City,
+    EXTRACT(YEAR FROM c.Call_Date),
+    EXTRACT(MONTH FROM c.Call_Date)
+ORDER BY
+    Activity_Year DESC,
+    Activity_Month DESC,
+    Total_Handled_Calls DESC;
+```
+
+**Execution Screenshot:** <img src="Phase2/screenshots/query8_run.png" width="700"/>
+
+**Result Screenshot:** <img src="Phase2/screenshots/query8_result.png" width="700"/>
+
+---
+

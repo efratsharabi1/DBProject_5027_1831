@@ -939,32 +939,66 @@ If an invalid call with `Call_Time = NULL` is inserted, the database rejects the
 
 ## Indexes
 
-### Index 1 – VOLUNTEER_CALL (Volunteer_ID)
+### Index 1 – VOLUNTEER_CALL Volunteer_ID
 
 #### Description
 
 An index was created on the `Volunteer_ID` column in the `VOLUNTEER_CALL` table.
 
-This improves query performance when filtering calls by volunteer.
+This index improves performance when searching for all calls handled by a specific volunteer.
+
+**Before Index Screenshot:** <img src="Phase2/screenshots/index1_before.png" width="700"/>
+
+**Create Index Screenshot:** <img src="Phase2/screenshots/index1_create.png" width="700"/>
+
+**After Index Screenshot:** <img src="Phase2/screenshots/index1_after.png" width="700"/>
+
+#### Explanation
+
+Before adding the index, the database may need to scan the table in order to find matching records.
+After adding the index, the database can locate records by `Volunteer_ID` more efficiently.
 
 ---
 
-### Index 2 – CALL (Type_ID)
+### Index 2 – CALL Type_ID
 
 #### Description
 
 An index was created on the `Type_ID` column in the `CALL` table.
 
-This improves performance when filtering calls by type.
+This index improves performance when filtering calls by call type.
+
+**Before Index Screenshot:** <img src="Phase2/screenshots/index2_before.png" width="700"/>
+
+**Create Index Screenshot:** <img src="Phase2/screenshots/index2_create.png" width="700"/>
+
+**After Index Screenshot:** <img src="Phase2/screenshots/index2_after.png" width="700"/>
+
+#### Explanation
+
+Before adding the index, filtering calls by type may require scanning many rows.
+After adding the index, the database can search by `Type_ID` faster, especially when the table contains many calls.
 
 ---
 
-### Index 3 – VOLUNTEER (Is_Active)
+### Index 3 – VOLUNTEER Is_Active
 
 #### Description
 
 An index was created on the `Is_Active` column in the `VOLUNTEER` table.
 
-This improves performance when filtering active volunteers.
+This index improves performance when filtering active or inactive volunteers.
+
+**Before Index Screenshot:** <img src="Phase2/screenshots/index3_before.png" width="700"/>
+
+**Create Index Screenshot:** <img src="Phase2/screenshots/index3_create.png" width="700"/>
+
+**After Index Screenshot:** <img src="Phase2/screenshots/index3_after.png" width="700"/>
+
+#### Explanation
+
+Before adding the index, the database may scan the volunteer table to find active volunteers.
+After adding the index, filtering by `Is_Active` can be performed more efficiently.
 
 ---
+

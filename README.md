@@ -313,9 +313,12 @@ Execution Screenshot:
 
 Result Screenshot:
 <img src="Phase2/screenshots/query1b_result.png" width="700"/>
-Efficiency Explanation
+#### Efficiency Explanation
+
 Both queries return the same result.
+
 The JOIN query combines multiple tables and may produce duplicate rows, which requires using DISTINCT.
+
 The EXISTS query only checks whether a matching record exists, and stops searching as soon as one is found.
+
 Therefore, the EXISTS query is more efficient in this case.
-```text

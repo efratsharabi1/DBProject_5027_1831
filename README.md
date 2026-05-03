@@ -841,3 +841,45 @@ The purpose of this delete is to remove inactive volunteers from emergency call 
 
 ---
 
+---
+
+## Rollback and Commit
+
+### Rollback Example
+
+#### Description
+
+In this example, a transaction is started using `BEGIN`.  
+The city of a volunteer is updated temporarily.  
+After running `ROLLBACK`, the database returns to its original state and the update is cancelled.
+
+**Before Screenshot:**  
+<img src="Phase2/screenshots/rollback_before.png" width="700"/>
+
+**After Update Screenshot:**  
+<img src="Phase2/screenshots/rollback_update.png" width="700"/>
+
+**After Rollback Screenshot:**  
+<img src="Phase2/screenshots/rollback_after_rollback.png" width="700"/>
+
+---
+
+### Commit Example
+
+#### Description
+
+In this example, a transaction is started using `BEGIN`.  
+The city of a volunteer is updated.  
+After running `COMMIT`, the change is saved permanently in the database.
+
+**Before Screenshot:**  
+<img src="Phase2/screenshots/commit_before.png" width="700"/>
+
+**After Update Screenshot:**  
+<img src="Phase2/screenshots/commit_update.png" width="700"/>
+
+**After Commit Screenshot:**  
+<img src="Phase2/screenshots/commit_after_commit.png" width="700"/>
+
+---
+

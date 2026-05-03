@@ -282,14 +282,19 @@ JOIN SKILL s
 WHERE v.Is_Active = 'Y'
   AND s.Difficulty_Level = 5
 ORDER BY v.Last_Name, v.First_Name;
+```
 
-Execution Screenshot:
+**Execution Screenshot:**  
 <img src="Phase2/screenshots/query1a_run.png" width="700"/>
 
-Result Screenshot:
+**Result Screenshot:**  
 <img src="Phase2/screenshots/query1a_result.png" width="700"/>
 
-Query 1B – Using EXISTS
+---
+
+#### Query 1B – Using EXISTS
+
+```sql
 SELECT
     v.Volunteer_ID,
     v.First_Name,
@@ -307,18 +312,22 @@ WHERE v.Is_Active = 'Y'
         AND s.Difficulty_Level = 5
   )
 ORDER BY v.Last_Name, v.First_Name;
+```
 
-Execution Screenshot:
+**Execution Screenshot:**  
 <img src="Phase2/screenshots/query1b_run.png" width="700"/>
 
-Result Screenshot:
+**Result Screenshot:**  
 <img src="Phase2/screenshots/query1b_result.png" width="700"/>
+
+---
+
 #### Efficiency Explanation
 
 Both queries return the same result.
 
-The JOIN query combines multiple tables and may produce duplicate rows, which requires using DISTINCT.
+The `JOIN` query combines multiple tables and may produce duplicate rows, which requires using `DISTINCT`.
 
-The EXISTS query only checks whether a matching record exists, and stops searching as soon as one is found.
+The `EXISTS` query only checks whether a matching record exists, and stops searching as soon as one is found.
 
-Therefore, the EXISTS query is more efficient in this case.
+Therefore, the `EXISTS` query is more efficient in this case.

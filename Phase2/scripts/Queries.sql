@@ -260,3 +260,198 @@ ORDER BY
     Activity_Year DESC,
     Activity_Month DESC,
     Total_Handled_Calls DESC;
+
+/* =========================================================
+   PART 3: UPDATE QUERIES
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   Update 1:
+   Close a specific open call
+   --------------------------------------------------------- */
+
+SELECT *
+FROM CALL
+WHERE Call_ID = 1;
+
+UPDATE CALL
+SET Status = 'Closed'
+WHERE Call_ID = 1
+  AND Status = 'Open';
+
+SELECT *
+FROM CALL
+WHERE Call_ID = 1;
+
+/* ---------------------------------------------------------
+   Update 2:
+   Deactivate 5 volunteers with the lowest activity
+   --------------------------------------------------------- */
+
+SELECT
+    v.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.Is_Active,
+    COUNT(vc.Call_ID) AS Total_Calls
+FROM VOLUNTEER v
+LEFT JOIN VOLUNTEER_CALL vc
+    ON v.Volunteer_ID = vc.Volunteer_ID
+WHERE v.Is_Active = 'Y'
+GROUP BY
+    v.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.Is_Active
+ORDER BY Total_Calls ASC
+LIMIT 5;
+
+UPDATE VOLUNTEER
+SET Is_Active = 'N'
+WHERE Volunteer_ID IN (
+    SELECT Volunteer_ID
+    FROM (
+        SELECT
+            v.Volunteer_ID,
+            COUNT(vc.Call_ID) AS Total_Calls
+        FROM VOLUNTEER v
+        LEFT JOIN VOLUNTEER_CALL vc
+            ON v.Volunteer_ID = vc.Volunteer_ID
+        WHERE v.Is_Active = 'Y'
+        GROUP BY v.Volunteer_ID
+        ORDER BY Total_Calls ASC
+        LIMIT 5
+    ) AS low_activity_volunteers
+);
+
+SELECT
+    v.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.Is_Active,
+    COUNT(vc.Call_ID) AS Total_Calls
+FROM VOLUNTEER v
+LEFT JOIN VOLUNTEER_CALL vc
+    ON v.Volunteer_ID = vc.Volunteer_ID
+WHERE v.Is_Active = 'N'
+GROUP BY
+    v.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.Is_Active
+ORDER BY Total_Calls ASC
+LIMIT 5;
+
+/* ---------------------------------------------------------
+   Update 3:
+   Increase training capacity for full trainings
+   --------------------------------------------------------- */
+
+SELECT
+    tr.Training_ID,
+    tr.Training_Name,
+    tr.Max_Participant,
+    COUNT(vt.Volunteer_ID) AS Registered_Volunteers
+FROM TRAINING tr
+JOIN VOLUNTEER_TRAINING vt
+    ON tr.Training_ID = vt.Training_ID
+GROUP BY
+    tr.Training_ID,
+    tr.Training_Name,
+    tr.Max_Participant
+HAVING COUNT(vt.Volunteer_ID) >= tr.Max_Participant;
+
+UPDATE TRAINING tr
+SET Max_Participant = Max_Participant + 5
+WHERE tr.Training_ID IN (
+    SELECT tr2.Training_ID
+    FROM TRAINING tr2
+    JOIN VOLUNTEER_TRAINING vt
+        ON tr2.Training_ID = vt.Training_ID
+    GROUP BY
+        tr2.Training_ID,
+        tr2.Max_Participant
+    HAVING COUNT(vt.Volunteer_ID) >= tr2.Max_Participant
+);
+
+SELECT
+    tr.Training_ID,
+    tr.Training_Name,
+    tr.Max_Participant,
+    COUNT(vt.Volunteer_ID) AS Registered_Volunteers
+FROM TRAINING tr
+JOIN VOLUNTEER_TRAINING vt
+    ON tr.Training_ID = vt.Training_ID
+GROUP BY
+    tr.Training_ID,
+    tr.Training_Name,
+    tr.Max_Participant
+ORDER BY tr.Training_ID;
+
+
+/* =========================================================
+   PART 4: DELETE QUERIES
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   Delete 1:
+   Delete volunteer-skill records of inactive volunteers
+   --------------------------------------------------------- */
+
+
+SELECT
+    vs.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.Is_Active,
+    vs.Skill_ID
+FROM VOLUNTEER_SKILL vs
+JOIN VOLUNTEER v
+    ON vs.Volunteer_ID = v.Volunteer_ID
+WHERE v.Is_Active = 'N';
+
+
+DELETE FROM VOLUNTEER_SKILL vs
+USING VOLUNTEER v
+WHERE vs.Volunteer_ID = v.Volunteer_ID
+  AND v.Is_Active = 'N';
+
+
+SELECT
+    vs.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.Is_Active,
+    vs.Skill_ID
+FROM VOLUNTEER_SKILL vs
+JOIN VOLUNTEER v
+    ON vs.Volunteer_ID = v.Volunteer_ID
+WHERE v.Is_Active = 'N';
+
+
+
+/* ---------------------------------------------------------
+   Delete 2:
+   Delete volunteer-training records for inactive volunteers
+   --------------------------------------------------------- */
+
+SELECT
+    vt.*
+FROM VOLUNTEER_TRAINING vt
+JOIN VOLUNTEER v
+    ON vt.Volunteer_ID = v.Volunteer_ID
+WHERE v.Is_Active = 'N';
+
+DELETE FROM VOLUNTEER_TRAINING vt
+USING VOLUNTEER v
+WHERE vt.Volunteer_ID = v.Volunteer_ID
+  AND v.Is_Active = 'N';
+
+SELECT
+    vt.*
+FROM VOLUNTEER_TRAINING vt
+JOIN VOLUNTEER v
+    ON vt.Volunteer_ID = v.Volunteer_ID
+WHERE v.Is_Active = 'N';
+

@@ -252,3 +252,70 @@ Backup files are stored with date and time.
 ---
 
 # Phase 2: SQL And Constraints
+
+## Queries
+
+### Query 1 – Active Volunteers With High Difficulty Skills
+
+#### Description
+
+This query returns all active volunteers who have at least one skill with the highest difficulty level (5).
+
+The purpose of this query is to help the dispatch center identify highly skilled volunteers who are suitable for handling complex emergency cases.
+
+---
+
+#### Query 1A – Using JOIN
+
+```sql
+SELECT DISTINCT
+    v.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.Phone,
+    v.City
+FROM VOLUNTEER v
+JOIN VOLUNTEER_SKILL vs
+    ON v.Volunteer_ID = vs.Volunteer_ID
+JOIN SKILL s
+    ON vs.Skill_ID = s.Skill_ID
+WHERE v.Is_Active = 'Y'
+  AND s.Difficulty_Level = 5
+ORDER BY v.Last_Name, v.First_Name;
+
+Execution Screenshot:
+<img src="Phase2/screenshots/query1a_run.png" width="700"/>
+
+Result Screenshot:
+<img src="Phase2/screenshots/query1a_result.png" width="700"/>
+
+Query 1B – Using EXISTS
+SELECT
+    v.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.Phone,
+    v.City
+FROM VOLUNTEER v
+WHERE v.Is_Active = 'Y'
+  AND EXISTS (
+      SELECT 1
+      FROM VOLUNTEER_SKILL vs
+      JOIN SKILL s
+          ON vs.Skill_ID = s.Skill_ID
+      WHERE vs.Volunteer_ID = v.Volunteer_ID
+        AND s.Difficulty_Level = 5
+  )
+ORDER BY v.Last_Name, v.First_Name;
+
+Execution Screenshot:
+<img src="Phase2/screenshots/query1b_run.png" width="700"/>
+
+Result Screenshot:
+<img src="Phase2/screenshots/query1b_result.png" width="700"/>
+Efficiency Explanation
+Both queries return the same result.
+The JOIN query combines multiple tables and may produce duplicate rows, which requires using DISTINCT.
+The EXISTS query only checks whether a matching record exists, and stops searching as soon as one is found.
+Therefore, the EXISTS query is more efficient in this case.
+```text

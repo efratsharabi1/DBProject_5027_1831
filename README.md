@@ -739,4 +739,105 @@ ORDER BY
 **Result Screenshot:** <img src="Phase2/screenshots/query8_result.png" width="700"/>
 
 ---
+---
+
+## Update Queries
+
+### Update 1 – Close a Specific Open Call
+
+#### Description
+
+This update changes the status of a specific open call to `Closed`.
+
+The purpose of this update is to allow the dispatch center to mark an emergency call as completed after it was handled.
+
+**Before Screenshot:** <img src="Phase2/screenshots/update1_before.png" width="700"/>
+
+**Execution Screenshot:** <img src="Phase2/screenshots/update1_run.png" width="700"/>
+
+**After Screenshot:** <img src="Phase2/screenshots/update1_after.png" width="700"/>
+
+---
+
+### Update 2 – Deactivate Volunteers With the Lowest Activity
+
+#### Description
+
+This update finds the 5 active volunteers with the lowest number of handled calls and changes their status to inactive.
+
+The purpose of this update is to demonstrate a non-trivial update based on volunteer activity, using `LEFT JOIN`, `GROUP BY`, `ORDER BY`, `LIMIT`, and a subquery.
+
+**Before Screenshot:** <img src="Phase2/screenshots/update2_before.png" width="700"/>
+
+**Execution Screenshot:** <img src="Phase2/screenshots/update2_run.png" width="700"/>
+
+**After Screenshot:** <img src="Phase2/screenshots/update2_after.png" width="700"/>
+
+---
+
+### Update 3 – Increase Training Capacity for Full Trainings
+
+#### Description
+
+This update increases the maximum number of participants by 5 for trainings that are already full.
+
+The purpose of this update is to help management allow more volunteers to register for trainings with high demand.
+
+**Before Screenshot:** <img src="Phase2/screenshots/update3_before.png" width="700"/>
+
+**Execution Screenshot:** <img src="Phase2/screenshots/update3_run.png" width="700"/>
+
+**After Screenshot:** <img src="Phase2/screenshots/update3_after.png" width="700"/>
+
+---
+
+## Delete Queries
+
+### Delete 1 – Delete Skill Records of Inactive Volunteers
+
+#### Description
+
+This delete removes records from `VOLUNTEER_SKILL` for volunteers whose status is inactive.
+
+The purpose of this delete is to remove skill assignments from volunteers who are no longer active in the system.
+
+**Before Screenshot:** <img src="Phase2/screenshots/delete1_before.png" width="700"/>
+
+**Execution Screenshot:** <img src="Phase2/screenshots/delete1_run.png" width="700"/>
+
+**After Screenshot:** <img src="Phase2/screenshots/delete1_after.png" width="700"/>
+
+---
+
+### Delete 2 – Delete Training Records of Inactive Volunteers
+
+#### Description
+
+This delete removes records from `VOLUNTEER_TRAINING` for volunteers whose status is inactive.
+
+The purpose of this delete is to remove inactive volunteers from training registration records.
+
+**Before Screenshot:** <img src="Phase2/screenshots/delete2_before.png" width="700"/>
+
+**Execution Screenshot:** <img src="Phase2/screenshots/delete2_run.png" width="700"/>
+
+**After Screenshot:** <img src="Phase2/screenshots/delete2_after.png" width="700"/>
+
+---
+
+### Delete 3 – Delete Call Assignment Records of Inactive Volunteers
+
+#### Description
+
+This delete removes records from `VOLUNTEER_CALL` for volunteers whose status is inactive.
+
+The purpose of this delete is to remove inactive volunteers from emergency call assignment records.
+
+**Before Screenshot:** <img src="Phase2/screenshots/delete3_before.png" width="700"/>
+
+**Execution Screenshot:** <img src="Phase2/screenshots/delete3_run.png" width="700"/>
+
+**After Screenshot:** <img src="Phase2/screenshots/delete3_after.png" width="700"/>
+
+---
 

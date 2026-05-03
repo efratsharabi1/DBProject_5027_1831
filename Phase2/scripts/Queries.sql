@@ -100,3 +100,60 @@ WHERE v.Is_Active = 'Y'
         WHERE vc.Volunteer_ID = v.Volunteer_ID
       ) > 0
 ORDER BY Total_Calls DESC;
+
+/* ---------------------------------------------------------
+   Query 3A:
+   Number of calls by year and month - using GROUP BY
+   --------------------------------------------------------- */
+
+SELECT
+    EXTRACT(YEAR FROM c.Call_Date) AS Call_Year,
+    EXTRACT(MONTH FROM c.Call_Date) AS Call_Month,
+    t.Type_Name,
+    c.Status,
+    COUNT(c.Call_ID) AS Total_Calls
+FROM "CALL" c
+JOIN TYPE t
+    ON c.Type_ID = t.Type_ID
+GROUP BY
+    EXTRACT(YEAR FROM c.Call_Date),
+    EXTRACT(MONTH FROM c.Call_Date),
+    t.Type_Name,
+    c.Status
+ORDER BY
+    Call_Year,
+    Call_Month,
+    Total_Calls DESC;
+
+
+/* ---------------------------------------------------------
+   Query 3B:
+   Number of calls by year and month - using subquery
+   --------------------------------------------------------- */
+
+SELECT
+    q.Call_Year,
+    q.Call_Month,
+    q.Type_Name,
+    q.Status,
+    q.Total_Calls
+FROM (
+    SELECT
+        EXTRACT(YEAR FROM c.Call_Date) AS Call_Year,
+        EXTRACT(MONTH FROM c.Call_Date) AS Call_Month,
+        t.Type_Name,
+        c.Status,
+        COUNT(c.Call_ID) AS Total_Calls
+    FROM "CALL" c
+    JOIN TYPE t
+        ON c.Type_ID = t.Type_ID
+    GROUP BY
+        EXTRACT(YEAR FROM c.Call_Date),
+        EXTRACT(MONTH FROM c.Call_Date),
+        t.Type_Name,
+        c.Status
+) q
+ORDER BY
+    q.Call_Year,
+    q.Call_Month,
+    q.Total_Calls DESC;

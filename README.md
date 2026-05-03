@@ -331,3 +331,84 @@ The `JOIN` query combines multiple tables and may produce duplicate rows, which 
 The `EXISTS` query only checks whether a matching record exists, and stops searching as soon as one is found.
 
 Therefore, the `EXISTS` query is more efficient in this case.
+---
+
+### Query 2 – Number of Calls Per Active Volunteer
+
+#### Description
+
+This query returns the number of calls handled by each active volunteer.
+
+The purpose of this query is to allow the management to track volunteer activity and evaluate performance based on the number of calls handled.
+
+---
+
+#### Query 2A – Using JOIN and GROUP BY
+
+```sql
+SELECT
+    v.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.City,
+    COUNT(vc.Call_ID) AS Total_Calls
+FROM VOLUNTEER v
+JOIN VOLUNTEER_CALL vc
+    ON v.Volunteer_ID = vc.Volunteer_ID
+WHERE v.Is_Active = 'Y'
+GROUP BY
+    v.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.City
+ORDER BY Total_Calls DESC;
+```
+
+**Execution Screenshot:**  
+<img src="Phase2/screenshots/query2a_run.png" width="700"/>
+
+**Result Screenshot:**  
+<img src="Phase2/screenshots/query2a_result.png" width="700"/>
+
+---
+
+#### Query 2B – Using Subquery
+
+```sql
+SELECT
+    v.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.City,
+    (
+        SELECT COUNT(*)
+        FROM VOLUNTEER_CALL vc
+        WHERE vc.Volunteer_ID = v.Volunteer_ID
+    ) AS Total_Calls
+FROM VOLUNTEER v
+WHERE v.Is_Active = 'Y'
+  AND (
+        SELECT COUNT(*)
+        FROM VOLUNTEER_CALL vc
+        WHERE vc.Volunteer_ID = v.Volunteer_ID
+      ) > 0
+ORDER BY Total_Calls DESC;
+```
+
+**Execution Screenshot:**  
+<img src="Phase2/screenshots/query2b_run.png" width="700"/>
+
+**Result Screenshot:**  
+<img src="Phase2/screenshots/query2b_result.png" width="700"/>
+
+---
+
+#### Efficiency Explanation
+
+Both queries return the number of calls handled by each active volunteer.
+
+The JOIN with GROUP BY query is usually more efficient because it joins the tables once and aggregates the results in a single operation.
+
+The subquery version may execute the COUNT operation separately for each volunteer, and the same subquery appears more than once, which can increase execution time.
+
+Therefore, the JOIN and GROUP BY approach is more efficient in this case.

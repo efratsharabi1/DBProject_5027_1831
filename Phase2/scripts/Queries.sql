@@ -157,3 +157,46 @@ ORDER BY
     q.Call_Year,
     q.Call_Month,
     q.Total_Calls DESC;
+
+/* ---------------------------------------------------------
+   Query 4A:
+   Active volunteers with certified skills - using JOIN
+   --------------------------------------------------------- */
+
+SELECT DISTINCT
+    v.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.Phone,
+    v.City
+FROM VOLUNTEER v
+JOIN VOLUNTEER_SKILL vs
+    ON v.Volunteer_ID = vs.Volunteer_ID
+JOIN SKILL s
+    ON vs.Skill_ID = s.Skill_ID
+WHERE v.Is_Active = 'Y'
+  AND s.Requires_Certificate = 'Y'
+ORDER BY v.Last_Name, v.First_Name;
+
+/* ---------------------------------------------------------
+   Query 4B:
+   Active volunteers with certified skills - using EXISTS
+   --------------------------------------------------------- */
+
+SELECT
+    v.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.Phone,
+    v.City
+FROM VOLUNTEER v
+WHERE v.Is_Active = 'Y'
+  AND EXISTS (
+      SELECT 1
+      FROM VOLUNTEER_SKILL vs
+      JOIN SKILL s
+          ON vs.Skill_ID = s.Skill_ID
+      WHERE vs.Volunteer_ID = v.Volunteer_ID
+        AND s.Requires_Certificate = 'Y'
+  )
+ORDER BY v.Last_Name, v.First_Name;

@@ -883,9 +883,12 @@ After running `COMMIT`, the change is saved permanently in the database.
 
 ---
 
----
-
 ## Constraints
+
+The purpose of adding constraints is to enforce data integrity at the database level.
+Constraints prevent invalid data from being inserted into the system, even if the mistake comes from a user, an application, or a manual SQL command.
+
+---
 
 ### Constraint 1 – Training Duration Limit
 
@@ -893,13 +896,25 @@ After running `COMMIT`, the change is saved permanently in the database.
 
 This constraint was added to the `TRAINING` table using `ALTER TABLE`.
 
-The constraint ensures that the duration of a training cannot be more than 10 hours.
+```sql
+ALTER TABLE TRAINING
+ADD CONSTRAINT check_training_duration
+CHECK (Duration_Hours <= 10);
+```
 
-If an invalid training with `Duration_Hours` greater than 10 is inserted, the database rejects the insert and returns an error.
+#### Motivation
 
-**Alter Table Screenshot:** <img src="Phase2/screenshots/constraint1_alter.png" width="700"/>
+The motivation for this constraint is to ensure that training sessions have a reasonable duration.
+A training that lasts more than 10 hours is unrealistic and indicates incorrect data.
 
-**Error Screenshot:** <img src="Phase2/screenshots/constraint1_error.png" width="700"/>
+#### Benefit
+
+Prevents invalid training durations and keeps the data reliable.
+
+#### Observation
+
+An insert with `Duration_Hours = 11` failed.
+This proves the constraint is enforced.
 
 ---
 
@@ -907,15 +922,25 @@ If an invalid training with `Duration_Hours` greater than 10 is inserted, the da
 
 #### Description
 
-This constraint was added to the `VOLUNTEER` table using `ALTER TABLE`.
+This constraint was added to the `VOLUNTEER` table.
 
-The constraint ensures that a volunteer phone number must be positive.
+```sql
+ALTER TABLE VOLUNTEER
+ADD CONSTRAINT check_phone_positive
+CHECK (Phone > 0);
+```
 
-If an invalid volunteer with a negative phone number is inserted, the database rejects the insert and returns an error.
+#### Motivation
 
-**Alter Table Screenshot:** <img src="Phase2/screenshots/constraint2_alter.png" width="700"/>
+Phone numbers cannot be negative, so this prevents invalid data.
 
-**Error Screenshot:** <img src="Phase2/screenshots/constraint2_error.png" width="700"/>
+#### Benefit
+
+Ensures only valid phone numbers are stored.
+
+#### Observation
+
+An insert with a negative phone number failed, proving the constraint works.
 
 ---
 
@@ -923,40 +948,54 @@ If an invalid volunteer with a negative phone number is inserted, the database r
 
 #### Description
 
-This constraint was added to the `CALL` table using `ALTER TABLE`.
+This constraint was added to the `CALL` table.
 
-The constraint ensures that every call must have a call time and that `Call_Time` cannot be `NULL`.
+```sql
+ALTER TABLE CALL
+ADD CONSTRAINT check_call_time_not_null
+CHECK (Call_Time IS NOT NULL);
+```
 
-If an invalid call with `Call_Time = NULL` is inserted, the database rejects the insert and returns an error.
+#### Motivation
 
-**Alter Table Screenshot:** <img src="Phase2/screenshots/constraint3_alter.png" width="700"/>
+Every call must have a time for tracking and analysis.
 
-**Error Screenshot:** <img src="Phase2/screenshots/constraint3_error.png" width="700"/>
+#### Benefit
 
----
+Prevents incomplete records.
+
+#### Observation
+
+An insert with `Call_Time = NULL` failed, proving the constraint is enforced.
 
 ---
 
 ## Indexes
 
+The purpose of indexes is to improve query performance by allowing faster data retrieval.
+
+---
+
 ### Index 1 – VOLUNTEER_CALL Volunteer_ID
 
 #### Description
 
-An index was created on the `Volunteer_ID` column in the `VOLUNTEER_CALL` table.
+```sql
+CREATE INDEX idx_volunteer_call_volunteer_id
+ON VOLUNTEER_CALL (Volunteer_ID);
+```
 
-This index improves performance when searching for all calls handled by a specific volunteer.
+#### Motivation
 
-**Before Index Screenshot:** <img src="Phase2/screenshots/index1_before.png" width="700"/>
+Used frequently to search calls by volunteer.
 
-**Create Index Screenshot:** <img src="Phase2/screenshots/index1_create.png" width="700"/>
+#### Benefit
 
-**After Index Screenshot:** <img src="Phase2/screenshots/index1_after.png" width="700"/>
+Improves lookup speed.
 
-#### Explanation
+#### Observation
 
-Before adding the index, the database may need to scan the table in order to find matching records.
-After adding the index, the database can locate records by `Volunteer_ID` more efficiently.
+Execution time improved, although the query plan still shows Seq Scan due to small table size.
 
 ---
 
@@ -964,20 +1003,22 @@ After adding the index, the database can locate records by `Volunteer_ID` more e
 
 #### Description
 
-An index was created on the `Type_ID` column in the `CALL` table.
+```sql
+CREATE INDEX idx_call_type_id
+ON CALL (Type_ID);
+```
 
-This index improves performance when filtering calls by call type.
+#### Motivation
 
-**Before Index Screenshot:** <img src="Phase2/screenshots/index2_before.png" width="700"/>
+Used to filter calls by type.
 
-**Create Index Screenshot:** <img src="Phase2/screenshots/index2_create.png" width="700"/>
+#### Benefit
 
-**After Index Screenshot:** <img src="Phase2/screenshots/index2_after.png" width="700"/>
+Can improve performance for large datasets.
 
-#### Explanation
+#### Observation
 
-Before adding the index, filtering calls by type may require scanning many rows.
-After adding the index, the database can search by `Type_ID` faster, especially when the table contains many calls.
+No significant improvement because the table is small.
 
 ---
 
@@ -985,20 +1026,19 @@ After adding the index, the database can search by `Type_ID` faster, especially 
 
 #### Description
 
-An index was created on the `Is_Active` column in the `VOLUNTEER` table.
+```sql
+CREATE INDEX idx_volunteer_is_active
+ON VOLUNTEER (Is_Active);
+```
 
-This index improves performance when filtering active or inactive volunteers.
+#### Motivation
 
-**Before Index Screenshot:** <img src="Phase2/screenshots/index3_before.png" width="700"/>
+Used to filter active/inactive volunteers.
 
-**Create Index Screenshot:** <img src="Phase2/screenshots/index3_create.png" width="700"/>
+#### Benefit
 
-**After Index Screenshot:** <img src="Phase2/screenshots/index3_after.png" width="700"/>
+Can help filtering operations.
 
-#### Explanation
+#### Observation
 
-Before adding the index, the database may scan the volunteer table to find active volunteers.
-After adding the index, filtering by `Is_Active` can be performed more efficiently.
-
----
-
+No improvement because the column has low selectivity (only 'Y' and 'N').

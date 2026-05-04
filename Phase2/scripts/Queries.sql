@@ -223,7 +223,7 @@ SELECT
     c.Status,
     COUNT(c.Call_ID) AS Total_Calls
 FROM TYPE t
-JOIN CALL c
+LEFT JOIN CALL c
     ON t.Type_ID = c.Type_ID
 GROUP BY
     t.Type_ID,
@@ -232,7 +232,6 @@ GROUP BY
 ORDER BY
     t.Type_Name,
     c.Status;
-
 
 /* -------------------- Query 8 -------------------- */
 SELECT

@@ -111,25 +111,25 @@ ORDER BY
 SELECT
     q.Call_Year,
     q.Call_Month,
-    q.Type_Name,
+    t.Type_Name,
     q.Status,
     q.Total_Calls
 FROM (
     SELECT
-        EXTRACT(YEAR FROM c.Call_Date) AS Call_Year,
-        EXTRACT(MONTH FROM c.Call_Date) AS Call_Month,
-        t.Type_Name,
-        c.Status,
-        COUNT(c.Call_ID) AS Total_Calls
-    FROM CALL c
-    JOIN TYPE t
-        ON c.Type_ID = t.Type_ID
+        EXTRACT(YEAR FROM Call_Date) AS Call_Year,
+        EXTRACT(MONTH FROM Call_Date) AS Call_Month,
+        Type_ID,
+        Status,
+        COUNT(Call_ID) AS Total_Calls
+    FROM CALL
     GROUP BY
-        EXTRACT(YEAR FROM c.Call_Date),
-        EXTRACT(MONTH FROM c.Call_Date),
-        t.Type_Name,
-        c.Status
+        EXTRACT(YEAR FROM Call_Date),
+        EXTRACT(MONTH FROM Call_Date),
+        Type_ID,
+        Status
 ) q
+JOIN TYPE t
+    ON q.Type_ID = t.Type_ID
 ORDER BY
     q.Call_Year,
     q.Call_Month,

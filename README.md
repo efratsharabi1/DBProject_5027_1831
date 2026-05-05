@@ -608,7 +608,7 @@ SELECT
     c.Call_Time,
     t.Type_Name,
     c.Status
-FROM "CALL" c
+FROM CALL c
 JOIN TYPE t
     ON c.Type_ID = t.Type_ID
 WHERE c.Status = 'Open'
@@ -677,7 +677,7 @@ SELECT
     c.Status,
     COUNT(c.Call_ID) AS Total_Calls
 FROM TYPE t
-JOIN "CALL" c
+JOIN CALL c
     ON t.Type_ID = c.Type_ID
 GROUP BY
     t.Type_ID,
@@ -718,7 +718,7 @@ SELECT
 FROM VOLUNTEER v
 JOIN VOLUNTEER_CALL vc
     ON v.Volunteer_ID = vc.Volunteer_ID
-JOIN "CALL" c
+JOIN CALL c
     ON vc.Call_ID = c.Call_ID
 WHERE c.Status = 'Closed'
 GROUP BY

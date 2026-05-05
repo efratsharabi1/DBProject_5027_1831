@@ -889,6 +889,16 @@ After running `COMMIT`, the change is saved permanently in the database.
 
 ### Constraint 1 – Training Duration Limit
 
+**Motivation:**
+To ensure that training duration remains within a reasonable limit.
+
+**Benefit:**
+Prevents invalid or unrealistic data from being stored.
+
+**Observation:**
+The database rejected invalid input, proving the constraint is enforced.
+
+
 #### Description
 
 This constraint was added to the `TRAINING` table using `ALTER TABLE`.
@@ -905,6 +915,16 @@ If an invalid training with `Duration_Hours` greater than 10 is inserted, the da
 
 ### Constraint 2 – Positive Volunteer Phone Number
 
+**Motivation:**
+To prevent invalid phone numbers.
+
+**Benefit:**
+Ensures data accuracy and validity.
+
+**Observation:**
+Negative values were rejected by the database.
+
+
 #### Description
 
 This constraint was added to the `VOLUNTEER` table using `ALTER TABLE`.
@@ -920,6 +940,16 @@ If an invalid volunteer with a negative phone number is inserted, the database r
 ---
 
 ### Constraint 3 – Call Time Cannot Be Null
+
+**Motivation:**
+To ensure that every call has a valid time.
+
+**Benefit:**
+Prevents incomplete records.
+
+**Observation:**
+NULL values were rejected by the database.
+
 
 #### Description
 
@@ -940,6 +970,16 @@ If an invalid call with `Call_Time = NULL` is inserted, the database rejects the
 ## Indexes
 
 ### Index 1 – VOLUNTEER_CALL Volunteer_ID
+
+**Motivation:**
+This column is frequently used in search conditions.
+
+**Benefit:**
+Improves query performance by reducing full table scans.
+
+**Observation:**
+Execution time improved, although the plan still shows sequential scan due to small table size.
+
 
 #### Description
 
@@ -962,6 +1002,16 @@ After adding the index, the database can locate records by `Volunteer_ID` more e
 
 ### Index 2 – CALL Type_ID
 
+**Motivation:**
+To optimize filtering by call type.
+
+**Benefit:**
+Can improve performance when the dataset is large.
+
+**Observation:**
+No significant improvement due to small table size.
+
+
 #### Description
 
 An index was created on the `Type_ID` column in the `CALL` table.
@@ -982,6 +1032,16 @@ After adding the index, the database can search by `Type_ID` faster, especially 
 ---
 
 ### Index 3 – VOLUNTEER Is_Active
+
+**Motivation:**
+To optimize filtering by active status.
+
+**Benefit:**
+Can help in filtering operations.
+
+**Observation:**
+No improvement because the column has low selectivity (few distinct values).
+
 
 #### Description
 

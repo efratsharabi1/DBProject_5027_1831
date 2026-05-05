@@ -13,7 +13,6 @@ ADD CONSTRAINT check_training_duration
 CHECK (Duration_Hours <= 10);
 
 -- Test invalid data for Constraint 1
-
 INSERT INTO TRAINING
 (
     Training_ID,

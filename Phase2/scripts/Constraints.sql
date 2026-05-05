@@ -77,7 +77,7 @@ ADD CONSTRAINT check_call_time_not_null
 CHECK (Call_Time IS NOT NULL);
 
 -- Test invalid data for Constraint 3
-INSERT INTO "CALL"
+INSERT INTO CALL
 (
     Call_ID,
     Longitude,

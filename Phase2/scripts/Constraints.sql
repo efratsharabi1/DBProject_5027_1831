@@ -12,6 +12,25 @@ ALTER TABLE TRAINING
 ADD CONSTRAINT check_training_duration
 CHECK (Duration_Hours <= 10);
 
+-- Test invalid data for Constraint 1
+
+INSERT INTO TRAINING
+(
+    Training_ID,
+    Training_Name,
+    Description_,
+    Max_Participant,
+    Duration_Hours
+)
+VALUES
+(
+    999,
+    'BadTraining',
+    'Invalid duration',
+    20,
+    11
+);
+
 
 /* ---------------------------------------------------------
    Constraint 2:

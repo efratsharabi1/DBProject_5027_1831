@@ -1,0 +1,13 @@
+SELECT
+    tr.Training_ID,
+    tr.Training_Name,
+    tr.Max_Participant,
+    COUNT(vt.Volunteer_ID) AS Registered_Volunteers
+FROM TRAINING tr
+JOIN VOLUNTEER_TRAINING vt
+    ON tr.Training_ID = vt.Training_ID
+GROUP BY
+    tr.Training_ID,
+    tr.Training_Name,
+    tr.Max_Participant
+HAVING COUNT(vt.Volunteer_ID) >= tr.Max_Participant;

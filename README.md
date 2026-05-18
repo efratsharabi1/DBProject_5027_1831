@@ -1068,7 +1068,33 @@ After adding the index, filtering by `Is_Active` can be performed more efficient
 <img width="912" height="531" alt="image" src="https://github.com/user-attachments/assets/1a7755d3-46bc-41c9-b718-2d1a2027787b" />
 
 
-# Phase 3: Integration and Views
+# Phase 3 – Integration and Views
 
-The ERD diagram of the system we built:
-<img src="Phase1/ERDAndDSDFiles/ERD.png" width="900"/>
+## Introduction
+
+In this phase, database integration was performed between our system and another team's system.
+
+The process included:
+- Presenting the ERD of our original system
+- Presenting the ERD of the second team’s system
+- Performing integration between the two databases into one combined system
+
+The integration process was based on reverse engineering from the database structure and creating a new integrated ERD.
+
+---
+
+## Our System ERD
+
+![Our ERD](Phase1/ERDAndDSDFiles/ERD.png)
+
+---
+
+## Second Team ERD
+
+![Second Team ERD](Phase3/ERDAndDSDFiles/NEW_ERD.png)
+
+---
+
+## Integrated ERD
+
+![Integrated ERD](Phase3/ERDAndDSDFiles/IntegratedERD.png)

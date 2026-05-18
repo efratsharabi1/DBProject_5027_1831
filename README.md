@@ -1066,3 +1066,9 @@ After adding the index, filtering by `Is_Active` can be performed more efficient
 
 <img width="898" height="727" alt="image" src="https://github.com/user-attachments/assets/2a89fb90-49e7-4d68-a3c4-e85d3de4ae91" />
 <img width="912" height="531" alt="image" src="https://github.com/user-attachments/assets/1a7755d3-46bc-41c9-b718-2d1a2027787b" />
+
+
+# Phase 3: Integration and Views
+
+The ERD diagram of the system we built:
+<img src="Phase1/ERDAndDSDFiles/ERD.png" width="900"/>

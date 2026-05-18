@@ -1098,3 +1098,8 @@ The integration process was based on reverse engineering from the database struc
 ## Integrated ERD
 
 ![Integrated ERD](Phase3/ERDAndDSDFiles/IntegratedERD.png)
+
+
+## Integration Design Decisions
+
+📄 [View Integration Design Decisions](Phase3/scripts/integration_design_decisions.md)

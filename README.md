@@ -17,6 +17,15 @@
   - [Backup](#backup)
 
 - [Phase 2: SQL And Constraints](#phase-2-SQL-And-Constraints)
+  - [Queries](#queries)
+  - [Update Queries](#update-queries)
+  - [Delete Queries](#delete-queries)
+  - [Rollback and Commit](#rollback-and-commit)
+  - [Constraints](#constraints)
+  - [Indexes](#indexes)
+  - [Backup](#backup)
+
+- [Phase 3: Integration and Views](#phase-3-Integration-and-Views)
 ---
 
 # Phase 1: Design and Build the Database

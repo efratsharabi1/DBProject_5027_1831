@@ -1,96 +1,271 @@
-## Integration Design Decisions
+# Integration Process Summary
 
-During the integration process, the two database systems were merged into one unified and more normalized system for managing volunteer emergency assistance calls in the Yedidim organization.
+As part of this project, an integration process was performed between two different systems used for managing volunteer emergency assistance calls in the Yedidim organization. The goal of the integration was to create a unified, organized, and more normalized system while preserving the important information from both systems and removing redundancy and inconsistencies.
 
-The main goal of the integration was to preserve important information from both systems while reducing duplication, inconsistencies, and unnecessary complexity.
+# Main Changes Performed
 
-### Unifying Request and Call
+## Merging the Request and Call Entities
 
-One of the main changes was merging the `Request` and `Call` entities into a single entity named `Call`.
+Both systems contained an entity representing an assistance request:
 
-Both entities represented the same real-world action — opening an assistance request — therefore they were unified into one central entity in the integrated system.
+* One system used the entity:
 
----
+  * Request
+* The second system used:
 
-### Renaming Entities and Attributes
+  * Call
 
-Several entity and attribute names were changed to improve clarity and professionalism.
+Since both entities represented the same business concept, they were merged into a single entity named:
 
-For example:
-- `Family` was renamed to `Caller`
-- `family_id` → `caller_id`
-- `family_name` → `caller_name`
-- `phone` → `phone_number`
+* Call
 
-This decision was made because the system handles any caller and not only families.
+This created one central entity responsible for managing all emergency calls in the system.
 
 ---
 
-### Keeping Status as a Separate Entity
+## Renaming the Family Entity to Caller
 
-The `Status` entity was kept as a separate entity instead of being stored directly as an attribute inside `Call`.
+The original system included an entity named:
 
-This design allows multiple calls to share the same status values such as:
-- Open
-- Closed
-- InProgress
+* Family
 
-The decision improves normalization and enables centralized management of statuses.
+After analyzing the system requirements, it was understood that the system does not specifically manage families, but rather any person opening a call.
 
-Each call has one status, while each status can belong to many calls.
+Therefore, the entity name was changed to:
+
+* Caller
+
+Additionally, the following attributes were renamed:
+
+* Contactperson_id → caller_id
+* contactperson_name → caller_name
 
 ---
 
-### Location Entity Design
+## Removing number_of_members
 
-A major difference between the two systems involved location management.
+The attribute:
 
-In one system, location data appeared as attributes inside the call entity, while in the other system there was a separate `Location` entity.
+* number_of_members
 
-After evaluation, it was decided to keep `Location` as an independent entity because location information may be complex and reusable across multiple parts of the system.
+was removed from the Caller entity.
+
+Reason:
+
+* The number of family members is not essential information for a vehicle assistance system.
+* The attribute did not contribute directly to call management and was therefore removed to keep the model simpler and more focused.
+
+---
+
+## Removing phone_number from Call
+
+Initially, the phone number was stored inside the Call entity.
+
+After creating the Caller entity, the attribute:
+
+* phone_number
+
+was removed from Call.
+
+Reason:
+
+* All caller information is now managed through Caller.
+* Keeping the phone number in both entities would create data redundancy.
+
+Therefore, the phone number is now stored only in:
+
+* Caller
+
+---
+
+## Keeping Status as a Separate Entity
+
+In one system, the status appeared as an attribute inside Call.
+In the second system, Status existed as a separate entity.
+
+It was decided to keep:
+
+* Status
+
+as an independent entity.
+
+Reason:
+
+* Multiple calls may share the same status.
+* This improves normalization and prevents duplicate values.
+
+The relationship created:
+
+* Status 1 : N Call
+
+---
+
+## Creating a Central Location Entity
+
+In one system, location appeared as attributes inside the call.
+In the second system, Location existed as a separate entity.
+
+It was decided to keep:
+
+* Location
+
+as an independent entity.
+
+Reason:
+
+* Location data is reused in several parts of the system.
+* It supports both textual addresses and geographic coordinates.
 
 The entity includes:
-- Address
-- Longitude
-- Latitude
-- Location notes
 
-In addition, a relationship between `Volunteer` and `Location` was preserved in order to represent the volunteer’s real-time current location.
-
-This decision was important because the volunteer’s city only represents their residence location, while the system also needs to know the volunteer’s current position in order to dispatch the closest available volunteer to a call.
+* address
+* latitude
+* longitude
+* location_description
 
 ---
 
-### Skills and Call Types
+## Keeping Current Volunteer Location
 
-The relationship between `Skill` and `Call_Type` was preserved instead of connecting skills directly to `Call`.
+A relationship between Volunteer and Location was preserved.
 
-This decision was made because required skills depend on the general type of the call rather than on a specific individual call.
+Purpose:
+
+* To represent the volunteer’s current real-time location.
+
+Reason:
+
+* The volunteer’s city represents only their home location.
+* The system must also know where the volunteer currently is in order to dispatch the closest volunteer to a call.
+
+---
+
+## Keeping Both Availability and availability_status
+
+The entity:
+
+* Availability
+
+was preserved.
+
+Purpose:
+
+* To represent planned and recurring volunteer availability according to days, hours, and regions.
+
+Additionally, the attribute:
+
+* availability_status
+
+was also preserved.
+
+Purpose:
+
+* To represent the volunteer’s current real-time availability status.
+
+This separation allows the system to distinguish between:
+
+* Scheduled availability
+* Actual current availability
+
+---
+
+## Renaming Type to Call_Type
+
+The entity:
+
+* Type
+
+was renamed to:
+
+* Call_Type
+
+Reason:
+
+* The name Type was too generic.
+* Call_Type clearly represents a type of emergency call.
+
+---
+
+## Connecting Skill to Call_Type
+
+It was decided to connect:
+
+* Skill
+* Call_Type
+
+instead of connecting Skill directly to Call.
+
+Reason:
+
+* Required skills depend on the type of call in general.
+* For example:
+
+  * A flat tire call requires wheel replacement skills.
+
+Special requirements for specific calls are stored inside the call description.
+
+---
+
+## Removing the counter Attribute from Volunteer
+
+The attribute:
+
+* counter
+
+was removed from the Volunteer entity.
+
+Based on its context, the attribute probably represented:
+
+* Number of handled calls
+* Number of assignments
+* Activity level
+
+However:
+
+* Its meaning was unclear.
+* It is not a fundamental volunteer attribute.
+
+Information of this type is better calculated dynamically using SQL queries rather than stored permanently.
 
 For example:
-- A flat tire assistance call always requires a certain skill regardless of the specific situation.
 
-Special requirements for a specific call, such as requiring an English-speaking volunteer, are stored inside the call description itself.
-
----
-
-### Availability Management
-
-The `Availability` entity was preserved in order to represent planned and fixed volunteer availability according to:
-- Days
-- Hours
-- Areas
-
-At the same time, the `availability_status` attribute inside `Volunteer` was also preserved in order to represent the volunteer’s immediate real-time availability.
-
-This separation allows the system to distinguish between scheduled availability and the volunteer’s current active status.
+* The number of handled calls can be calculated using SQL COUNT functions.
 
 ---
 
-### Removing Unnecessary Entities
+## Removing location from Training
 
-Entities such as `Delivery` and `Treatment` were removed from the integrated design.
+The original system contained a location attribute inside Training.
 
-These entities were not considered essential to the core functionality of the system and added unnecessary complexity to the database structure.
+After creating a dedicated Location entity, this attribute was removed.
 
-The final integrated system focuses on creating a clear, efficient, and well-structured database for managing volunteers and emergency assistance calls while preserving the important information from both original systems.
+Reason:
+
+* To prevent data redundancy.
+* To use one consistent Location entity throughout the system.
+
+If necessary, Training can later be connected to Location through a relationship.
+
+---
+
+## Removing the Delivery and Treatment Entities
+
+The following entities were removed:
+
+* Delivery
+* Treatment
+
+Reason:
+
+* These entities were not essential to the core functionality of the system.
+* They added unnecessary complexity to the ERD.
+
+The goal of the integration was to create a system that is:
+
+* Focused
+* Clear
+* Easier to maintain and use
+
+# Summary
+
+The integration process created a unified and normalized system for managing emergency assistance calls and volunteers. During the process, overlapping entities were merged, redundant information was removed, entity and attribute names were improved, and a clearer ERD model was created to better represent the workflow of the Yedidim organization.

@@ -25,7 +25,13 @@
   - [Indexes](#indexes)
   - [Backup](#backup)
 
-- [Phase 3: Integration and Views](#phase-3-Integration-and-Views)
+- [Phase 3 – Integration and Views](#phase-3--integration-and-views)
+  - [Introduction](#introduction)
+  - [Our System ERD](#our-system-erd)
+  - [Second Team ERD](#second-team-erd)
+  - [Integrated ERD](#integrated-erd)
+  - [Integration Design Decisions](#integration-design-decisions)
+    
 ---
 
 # Phase 1: Design and Build the Database

@@ -25,8 +25,7 @@
   - [Indexes](#indexes)
   - [Backup](#backup)
 
-- [Phase 3 – Integration and Views](#phase-3--integration-and-views)
-  - [Introduction](#introduction)
+- [Phase 3: Integration and Views](#phase-3--integration-and-views)
   - [Our System ERD](#our-system-erd)
   - [Second Team ERD](#second-team-erd)
   - [Integrated ERD](#integrated-erd)

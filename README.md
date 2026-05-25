@@ -30,6 +30,9 @@
   - [Second Team ERD](#second-team-erd)
   - [Integrated ERD](#integrated-erd)
   - [Integration Design Decisions](#integration-design-decisions)
+  - [Integrate SQL](#integrate-SQL)
+  - [View](#View)
+  - [Backup](#backup)
     
 ---
 
@@ -1117,3 +1120,9 @@ The integration process was based on reverse engineering from the database struc
 ## Integration Design Decisions
 
 📄 [View Integration Design Decisions](Phase3/scripts/integration_design_decisions.md)
+
+---
+
+## Backup
+<img width="894" height="708" alt="image" src="https://github.com/user-attachments/assets/63a73746-bdad-45e9-9108-eeeda9ed1440" />
+

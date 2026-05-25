@@ -1116,6 +1116,7 @@ The integration process was based on reverse engineering from the database struc
 
 ![Integrated ERD](Phase3/ERDAndDSDFiles/IntegratedERD.png)
 
+---
 
 ## Integration Design Decisions
 
@@ -1123,6 +1124,35 @@ The integration process was based on reverse engineering from the database struc
 
 ---
 
+## Integrate SQL
+
+We performed an integration process between our original database system and the database system received from another team, creating one unified system based on the new integrated ERD. At the beginning of the process, we created a new database called `integratedDB` and restored both systems into it. The received system was restored under a separate schema called `received_system` in order to avoid conflicts with the original tables. After that, we started modifying the existing database according to the integrated ERD using the `Integrate.sql` file.
+
+In the `Volunteer` table, we added the fields `has_equipment` and `availability_status` that originated from the received system. We also renamed the column `city` to `volunteer_address` in order to match the new ERD design. Existing volunteers were updated according to `volunteer_id`, and additional volunteers from the received system were inserted into the unified table. For attributes that did not exist in the received system, such as `birthday`, `email`, and `recruitment_date`, default values were assigned.
+
+In the `Call` table, we removed the fields `latitude`, `longitude`, `phone`, and `status`, since they no longer appeared in the integrated ERD. We then added the new fields `image` and `priority_level`. Existing calls were updated using information from the received system, and new calls were inserted from the `request` table, including images and call types (`type_id`).
+
+We also created a new `Location` table that included the fields `location_id`, `address`, `latitude`, `longitude`, and `location_notes`. Since the received system did not contain a single address field, the new address was created by concatenating `city`, `street`, and `house_number` into one text value. Afterwards, calls were connected to locations using the `location_id` foreign key.
+
+Another entity that was created during the integration process was `Caller`, which was based on the `Family` table from the received system. During this process, fields such as `contactperson_id` and `contactperson_name` were transformed into `caller_id` and `caller_name`. Calls were later connected to callers through the `caller_id` foreign key.
+
+For the `Status` entity, all statuses were imported directly from the received system rather than generating artificial values. We then added the `status_id` field to the `Call` table and connected each call to its appropriate status.
+
+In addition, we renamed the table `type` to `c_type` and created a new relationship table called `requires_skill` in order to represent the many-to-many relationship between call types (`c_type`) and skills (`skill`). This relationship table includes the foreign keys `type_id` and `skill_id`.
+
+Throughout the entire integration process, we used SQL operations such as `ALTER TABLE`, `INSERT INTO SELECT`, `UPDATE`, creation of foreign keys, and relationship tables, while preserving the existing data and extending the database structure according to the integrated ERD.
+
+📄 [View Integrate sql](Phase3/scripts/integrate.sql)
+
+---
+
+## View SQL
+s להוסיף הסבר מילולי
+📄 [View View sql](Phase3/scripts/View.sql)
+
+---
+
 ## Backup
 <img width="894" height="708" alt="image" src="https://github.com/user-attachments/assets/63a73746-bdad-45e9-9108-eeeda9ed1440" />
+<img width="898" height="515" alt="image" src="https://github.com/user-attachments/assets/2487d3fc-76ca-4f6f-92e7-b7e7ddbdfe70" />
 

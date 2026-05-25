@@ -1147,8 +1147,217 @@ Throughout the entire integration process, we used SQL operations such as `ALTER
 ---
 
 ## View SQL
-s להוסיף הסבר מילולי
-📄 [View View sql](Phase3/scripts/View.sql)
+In this phase, two meaningful database views were created in order to represent the perspectives of the two original systems after the integration process.
+
+The first view, `volunteer_activity_view`, represents the perspective of our original volunteer management system.  
+This view combines information about volunteers, their availability, assigned calls, and call statuses into one unified structure.  
+The view allows the organization to monitor volunteer activity, availability schedules, and emergency calls assigned to volunteers.
+
+The second view, `caller_call_location_view`, represents the perspective of the received system.  
+This view combines caller information, call details, call priority, call status, and location information into one integrated structure.  
+The purpose of this view is to provide a centralized representation of callers and emergency calls together with their related locations and statuses.
+
+Both views were created using `LEFT JOIN` operations in order to preserve information even when related records do not exist in all connected tables.
+
+---
+
+### View 1 – volunteer_activity_view
+
+#### Description
+
+This view displays volunteer information together with availability details, assigned calls, and call statuses.
+
+The purpose of this view is to provide a unified representation of volunteer activity in the organization.
+
+#### View SQL
+
+```sql
+CREATE OR REPLACE VIEW volunteer_activity_view AS
+SELECT
+    v.Volunteer_ID,
+    v.First_Name,
+    v.Last_Name,
+    v.Phone,
+    v.Email,
+    v.Availability_status,
+    v.Is_Active,
+    a.Day_Of_Week,
+    a.Start_Time,
+    a.End_Time,
+    a.Preferred_Region_,
+    c.Call_ID,
+    c.Call_Date,
+    c.Call_Time,
+    s.Status_label
+FROM Volunteer v
+LEFT JOIN Availability a
+    ON v.Volunteer_ID = a.Volunteer_ID
+LEFT JOIN Volunteer_Call vc
+    ON v.Volunteer_ID = vc.Volunteer_ID
+LEFT JOIN Call c
+    ON vc.Call_ID = c.Call_ID
+LEFT JOIN Status s
+    ON c.Status_id = s.Status_id;
+```
+
+#### Select * From View
+
+```sql
+SELECT *
+FROM volunteer_activity_view
+LIMIT 10;
+```
+
+**Result Screenshot:**  
+<img src="Phase3/screenshots/view1_result.png" width="700"/>
+
+---
+
+### Query 1 on View 1
+
+#### Description
+
+This query displays active volunteers together with their availability details and assigned calls.
+
+The purpose of this query is to help the organization monitor active volunteers and track their emergency call activity.
+
+```sql
+SELECT *
+FROM volunteer_activity_view
+WHERE Is_Active = 'Y'
+ORDER BY Last_Name, First_Name;
+```
+
+**Result Screenshot:**  
+<img src="Phase3/screenshots/view1_query1_result.png" width="700"/>
+
+---
+
+### Query 2 on View 1
+
+#### Description
+
+This query counts the number of calls handled by each volunteer.
+
+The purpose of this query is to evaluate volunteer activity and workload distribution.
+
+```sql
+SELECT
+    Volunteer_ID,
+    First_Name,
+    Last_Name,
+    COUNT(Call_ID) AS total_calls
+FROM volunteer_activity_view
+GROUP BY Volunteer_ID, First_Name, Last_Name
+ORDER BY total_calls DESC;
+```
+
+**Result Screenshot:**  
+<img src="Phase3/screenshots/view1_query2_result.png" width="700"/>
+
+---
+
+### View 2 – caller_call_location_view
+
+#### Description
+
+This view displays caller information together with emergency call details, priority level, call status, and location information.
+
+The purpose of this view is to provide a complete overview of callers and emergency requests in the integrated system.
+
+#### View SQL
+
+```sql
+CREATE OR REPLACE VIEW caller_call_location_view AS
+SELECT
+    caller.caller_id,
+    caller.caller_name,
+    caller.phone_number,
+    caller.special_features,
+    c.call_id,
+    c.call_description,
+    c.priority_level,
+    c.call_date,
+    c.call_time,
+    ct.type_name,
+    s.status_label,
+    l.location_id,
+    l.address,
+    l.latitude,
+    l.longitude,
+    l.location_notes
+FROM caller
+LEFT JOIN call c
+    ON caller.caller_id = c.caller_id
+LEFT JOIN c_type ct
+    ON c.type_id = ct.type_id
+LEFT JOIN status s
+    ON c.status_id = s.status_id
+LEFT JOIN location l
+    ON c.location_id = l.location_id;
+```
+
+#### Select * From View
+
+```sql
+SELECT *
+FROM caller_call_location_view
+LIMIT 10;
+```
+
+**Result Screenshot:**  
+<img src="Phase3/screenshots/view2_result.png" width="700"/>
+
+---
+
+### Query 1 on View 2
+
+#### Description
+
+This query counts the number of calls for each priority level.
+
+The purpose of this query is to analyze the distribution of emergency calls according to urgency level.
+
+```sql
+SELECT
+    priority_level,
+    COUNT(call_id) AS total_calls
+FROM caller_call_location_view
+GROUP BY priority_level
+ORDER BY total_calls DESC;
+```
+
+**Result Screenshot:**  
+<img src="Phase3/screenshots/view2_query1_result.png" width="700"/>
+
+---
+
+### Query 2 on View 2
+
+#### Description
+
+This query displays callers that are not connected to any emergency call in the integrated database.
+
+The purpose of this query is to identify caller records that currently do not have matching call records.
+
+```sql
+SELECT
+    caller_id,
+    caller_name,
+    phone_number,
+    special_features
+FROM caller_call_location_view
+WHERE call_id IS NULL
+ORDER BY caller_name
+LIMIT 10;
+```
+
+**Result Screenshot:**  
+<img src="Phase3/screenshots/view2_query2_result.png" width="700"/>
+
+---
+
+📄 [View sql](Phase3/scripts/View.sql)
 
 ---
 

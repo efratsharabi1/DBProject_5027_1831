@@ -31,7 +31,7 @@
   - [Integrated ERD](#integrated-erd)
   - [Integration Design Decisions](#integration-design-decisions)
   - [Integrate SQL](#integrate-SQL)
-  - [View](#View)
+  - [View SQL](#View-SQL)
   - [Backup](#backup)
     
 ---

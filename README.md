@@ -1142,7 +1142,7 @@ In addition, we renamed the table `type` to `c_type` and created a new relations
 
 Throughout the entire integration process, we used SQL operations such as `ALTER TABLE`, `INSERT INTO SELECT`, `UPDATE`, creation of foreign keys, and relationship tables, while preserving the existing data and extending the database structure according to the integrated ERD.
 
-📄 [View Integrate sql](Phase3/scripts/integrate.sql)
+📄 [View Integrate sql](Phase3/scripts/Integrate.sql)
 
 ---
 

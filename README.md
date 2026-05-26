@@ -1208,9 +1208,6 @@ FROM volunteer_activity_view
 LIMIT 10;
 ```
 
-**Result Screenshot:**  
-<img src="Phase3/screenshots/view1_result.png" width="700"/>
-
 ---
 
 ### Query 1 on View 1
@@ -1304,11 +1301,6 @@ SELECT *
 FROM caller_call_location_view
 LIMIT 10;
 ```
-
-**Result Screenshot:**  
-<img src="Phase3/screenshots/view2_result.png" width="700"/>
-
----
 
 ### Query 1 on View 2
 

@@ -1229,7 +1229,7 @@ ORDER BY Last_Name, First_Name;
 ```
 
 **Result Screenshot:**  
-<img src="Phase3/screenshots/view1_query1_result.png" width="700"/>
+<img width="1480" height="626" alt="image" src="https://github.com/user-attachments/assets/4bba7383-8004-452e-9a93-d0027f2ae9e6" />
 
 ---
 
@@ -1253,7 +1253,7 @@ ORDER BY total_calls DESC;
 ```
 
 **Result Screenshot:**  
-<img src="Phase3/screenshots/view1_query2_result.png" width="700"/>
+<img width="691" height="647" alt="image" src="https://github.com/user-attachments/assets/e118c786-11d0-4da2-80ae-c7dceed70a6b" />
 
 ---
 
@@ -1328,7 +1328,7 @@ ORDER BY total_calls DESC;
 ```
 
 **Result Screenshot:**  
-<img src="Phase3/screenshots/view2_query1_result.png" width="700"/>
+<img width="435" height="128" alt="image" src="https://github.com/user-attachments/assets/fcf075c8-635d-4805-b8fc-75b1e49c7327" />
 
 ---
 
@@ -1353,7 +1353,7 @@ LIMIT 10;
 ```
 
 **Result Screenshot:**  
-<img src="Phase3/screenshots/view2_query2_result.png" width="700"/>
+<img width="754" height="428" alt="image" src="https://github.com/user-attachments/assets/38820fb2-ce4a-4f9f-9253-3aa144b4b75b" />
 
 ---
 

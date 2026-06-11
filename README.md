@@ -1357,3 +1357,18 @@ LIMIT 10;
 <img width="894" height="708" alt="image" src="https://github.com/user-attachments/assets/63a73746-bdad-45e9-9108-eeeda9ed1440" />
 <img width="898" height="515" alt="image" src="https://github.com/user-attachments/assets/2487d3fc-76ca-4f6f-92e7-b7e7ddbdfe70" />
 
+---
+
+# Phase 4 – PL/pgSQL Programs
+
+<img width="843" height="584" alt="image" src="https://github.com/user-attachments/assets/ad91a3fd-68a5-4cfe-a131-a26e6ab98aee" />
+<img width="459" height="101" alt="image" src="https://github.com/user-attachments/assets/1d7d0a8e-1751-4046-a8a3-265447d5f5d2" />
+<img width="865" height="580" alt="image" src="https://github.com/user-attachments/assets/fda97e53-ef83-467b-8b73-19c4c74b8c6f" />
+
+
+
+
+
+
+
+

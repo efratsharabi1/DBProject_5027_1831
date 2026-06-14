@@ -1,46 +1,53 @@
 DO $$
 DECLARE
 
-    calls_cursor REFCURSOR;
+```
+calls_cursor REFCURSOR;
 
-    call_rec RECORD;
+call_rec RECORD;
+```
 
 BEGIN
 
-    -- קריאה לפונקציה
-    calls_cursor := find_calls_without_volunteers();
+```
+-- קבלת כל הקריאות ללא מתנדבים
+calls_cursor := find_calls_without_volunteers();
 
-    LOOP
+LOOP
 
-        FETCH calls_cursor INTO call_rec;
+    FETCH calls_cursor INTO call_rec;
 
-        EXIT WHEN NOT FOUND;
-
-        RAISE NOTICE
-        'Assigning volunteer to call %',
-        call_rec.call_id;
-
-        -- קריאה לפרוצדורה
-        CALL assign_best_volunteer_to_call(
-            call_rec.call_id
-        );
-
-    END LOOP;
-
-    CLOSE calls_cursor;
+    EXIT WHEN NOT FOUND;
 
     RAISE NOTICE
-    'All calls without volunteers were processed successfully';
+    'Processing call %',
+    call_rec.call_id;
+
+    -- שיבוץ המתנדב המתאים ביותר
+    CALL assign_best_volunteer_to_call(
+        call_rec.call_id
+    );
+
+    -- הטריגר ירוץ אוטומטית אחרי ה-INSERT
+    -- ויעדכן את status_id של הקריאה
+
+END LOOP;
+
+CLOSE calls_cursor;
+
+RAISE NOTICE
+'All calls without volunteers were assigned successfully';
+```
 
 EXCEPTION
 
-    WHEN OTHERS THEN
+```
+WHEN OTHERS THEN
 
-        RAISE NOTICE
-
-        'Error in main program: %',
-
-        SQLERRM;
+    RAISE NOTICE
+    'Error in main program: %',
+    SQLERRM;
+```
 
 END;
 $$;

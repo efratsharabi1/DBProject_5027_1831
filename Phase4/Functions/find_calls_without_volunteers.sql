@@ -5,7 +5,7 @@ AS $$
 DECLARE
 
     -- Cursor that will store all calls without assigned volunteers
-    calls_cursor REFCURSOR := 'calls_without_volunteers_cursor';
+    calls_cursor REFCURSOR := 'calls_without_volunteers_cursor'; 
 
 BEGIN
 

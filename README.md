@@ -35,7 +35,6 @@
   - [Backup (phase 3)](#backup-(phase-3))
 
 - [Phase 4: PL/pgSQL Programs](#phase-4-PL/pgSQL-Programs)
-  - [Our System ERD](#our-system-erd)
   - [Main Program 1](#Main-Program-1)
   - [Main Program 2](#Main-Program-2)
   - [Backup (phase 4)](#backup-(phase-4))
@@ -1091,7 +1090,7 @@ After adding the index, filtering by `Is_Active` can be performed more efficient
 <img width="912" height="531" alt="image" src="https://github.com/user-attachments/assets/1a7755d3-46bc-41c9-b718-2d1a2027787b" />
 
 
-# Phase 3 – Integration and Views
+# Phase 3: Integration and Views
 
 ## Introduction
 
@@ -1365,7 +1364,7 @@ LIMIT 10;
 <img width="898" height="515" alt="image" src="https://github.com/user-attachments/assets/2487d3fc-76ca-4f6f-92e7-b7e7ddbdfe70" />
 
 
-# Phase 4 – PL/pgSQL Programs
+# Phase 4: PL/pgSQL Programs
 
 ## Main Program 1
 

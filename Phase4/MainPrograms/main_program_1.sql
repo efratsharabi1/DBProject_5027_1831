@@ -20,8 +20,10 @@ LOOP
     EXIT WHEN NOT FOUND;
 
     RAISE NOTICE
-    'Processing call %',
-    call_rec.call_id;
+'Call % | Description: % | Priority: %',
+call_rec.call_id,
+call_rec.call_description,
+call_rec.priority_level;
 
     -- שיבוץ המתנדב המתאים ביותר
     CALL assign_best_volunteer_to_call(

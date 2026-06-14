@@ -87,10 +87,6 @@ BEGIN
         INSERT INTO volunteer_call(volunteer_id, call_id)
         VALUES(best_volunteer, p_call_id);
 
-        UPDATE call
-        SET status_id = 2
-        WHERE call_id = p_call_id;
-
         RAISE NOTICE 'Volunteer % assigned to call % with score %',
             best_volunteer, p_call_id, best_score;
     ELSE

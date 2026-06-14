@@ -14,7 +14,7 @@
   - [Design Decisions](#design-decisions)
   - [SQL Scripts](#sql-scripts)
   - [Data](#data)
-  - [Backup](#backup)
+  - [Backup (phase 1)](#backup-(phase-1))
 
 - [Phase 2: SQL And Constraints](#phase-2-SQL-And-Constraints)
   - [Queries](#queries)
@@ -23,16 +23,22 @@
   - [Rollback and Commit](#rollback-and-commit)
   - [Constraints](#constraints)
   - [Indexes](#indexes)
-  - [Backup](#backup)
+  - [Backup (phase 2)](#backup-(phase-2))
 
-- [Phase 3: Integration and Views](#phase-3--integration-and-views)
+- [Phase 3: Integration and Views](#phase-3-integration-and-views)
   - [Our System ERD](#our-system-erd)
   - [Second Team ERD](#second-team-erd)
   - [Integrated ERD](#integrated-erd)
   - [Integration Design Decisions](#integration-design-decisions)
   - [Integrate SQL](#integrate-SQL)
   - [View SQL](#View-SQL)
-  - [Backup](#backup)
+  - [Backup (phase 3)](#backup-(phase-3))
+
+- [Phase 4: PL/pgSQL Programs](#phase-4-PL/pgSQL-Programs)
+  - [Our System ERD](#our-system-erd)
+  - [Main Program 1](#Main-Program-1)
+  - [Main Program 2](#Main-Program-2)
+  - [Backup (phase 4)](#backup-(phase-4))
     
 ---
 
@@ -258,7 +264,7 @@ Python was used to insert a large amount of valid data into relationship tables 
 
 ---
 
-## Backup
+## Backup (phase 1)
 
 A full backup of the database was created using pgAdmin.
 
@@ -1079,7 +1085,7 @@ After adding the index, filtering by `Is_Active` can be performed more efficient
 
 ---
 
-## Backup
+## Backup (phase 2)
 
 <img width="898" height="727" alt="image" src="https://github.com/user-attachments/assets/2a89fb90-49e7-4d68-a3c4-e85d3de4ae91" />
 <img width="912" height="531" alt="image" src="https://github.com/user-attachments/assets/1a7755d3-46bc-41c9-b718-2d1a2027787b" />
@@ -1353,18 +1359,111 @@ LIMIT 10;
 
 ---
 
-## Backup
+## Backup (phase 3)
+
 <img width="894" height="708" alt="image" src="https://github.com/user-attachments/assets/63a73746-bdad-45e9-9108-eeeda9ed1440" />
 <img width="898" height="515" alt="image" src="https://github.com/user-attachments/assets/2487d3fc-76ca-4f6f-92e7-b7e7ddbdfe70" />
 
----
 
 # Phase 4 – PL/pgSQL Programs
 
-<img width="843" height="584" alt="image" src="https://github.com/user-attachments/assets/ad91a3fd-68a5-4cfe-a131-a26e6ab98aee" />
-<img width="459" height="101" alt="image" src="https://github.com/user-attachments/assets/1d7d0a8e-1751-4046-a8a3-265447d5f5d2" />
-<img width="865" height="580" alt="image" src="https://github.com/user-attachments/assets/fda97e53-ef83-467b-8b73-19c4c74b8c6f" />
+## Main Program 1
 
+### Main Program Description
+The purpose of the main program is to find all calls that do not have an assigned volunteer and automatically assign the most suitable volunteer to each one.
+
+### Step 1 – Calling the `find_calls_without_volunteers` Function
+At the beginning of the main program, the following function is called:
+
+[find_calls_without_volunteers.sql](./Phase4/Functions/find_calls_without_volunteers.sql)
+
+The function returns a `REF CURSOR` containing all calls that do not have an assigned volunteer in the `volunteer_call` table.
+For each call, the function returns:
+
+* Call ID (`call_id`)
+* Call description (`call_description`)
+* Call date
+* Call time
+* Priority level (`priority_level`)
+* Call type (`type_name`)
+
+<img width="1165" height="218" alt="image" src="https://github.com/user-attachments/assets/6415853f-f78b-475e-ac36-7c84327bc61b" />
+
+### Step 2 – Iterating Through the Calls
+The main program iterates (`LOOP`) through all calls returned by the function.
+For each call, it prints:
+
+* Call ID
+* Call description
+* Priority level
+* Call type
+
+For example:
+
+```text
+Processing call 1000001
+Description: Medical help needed near Jerusalem Center
+Priority: 5
+Type: Flat Tire Assistance
+```
+### Step 3 – Calling the `assign_best_volunteer_to_call` Procedure
+For each call, the main program calls the following procedure:
+
+[assign_best_volunteer_to_call.sql](./Phase4/Procedures/assign_best_volunteer_to_call.sql)
+
+The purpose of this procedure is to find the most suitable volunteer for the call.
+The procedure iterates through all active volunteers and calculates a matching score for each one based on:
+1. The number of skills that match the call requirements.
+2. Whether the volunteer has the required equipment (`has_equipment`).
+3. Whether the volunteer is available (`availability_status`).
+4. The geographical distance between the volunteer and the call location, calculated using latitude and longitude (`latitude`, `longitude`).
+
+The volunteer with the highest score is selected and assigned to the call.
+
+### What Is Printed During the Procedure Execution?
+
+<img width="1246" height="566" alt="image" src="https://github.com/user-attachments/assets/323d4c55-565c-41a1-be85-3d300e7e4b13" />
+
+During the execution of the procedure, the following messages may be printed:
+
+```text
+Volunteer 3 currently leads with score 15
+Volunteer 207143500 currently leads with score 20
+Volunteer 330925502 currently leads with score 40
+Volunteer 9001 currently leads with score 85
+```
+
+This means:
+* Initially, volunteer 3 had the highest score.
+* Later, another volunteer with a higher score was found.
+* Finally, volunteer 9001 achieved a score of 85 and was selected as the best match.
+
+At the end of the procedure, the following message is printed:
+
+```text
+Volunteer 9001 assigned to call 1000001 with score 85
+```
+
+This means that volunteer 9001 was assigned to call 1000001 with a matching score of 85.
+
+### Step 4 – Trigger Activation
+
+When the procedure assigns a volunteer to a call, it inserts a new record into the volunteer_call table.
+As soon as the `INSERT` operation is performed on this table, the following trigger is automatically activated:
+
+[update_call_status_after_assignment.sql](./Phase4/Triggers/update_call_status_after_assignment.sql)
+
+The purpose of the trigger is to update the call status in the `call` table.
+The trigger changes the status from Pending to In Progress.
+
+We can see that the calls were successfully assigned to volunteers, and their status was automatically updated to "In Progress" by the trigger.
+<img width="1096" height="212" alt="image" src="https://github.com/user-attachments/assets/3556a7b3-008c-41bf-a673-300f6c83141a" />
+
+---
+## Main Program 2
+
+---
+## Backup (phase 4)
 
 
 

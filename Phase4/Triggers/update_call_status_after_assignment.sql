@@ -14,3 +14,12 @@ BEGIN
     RETURN NEW;
 END;
 $$;
+
+
+DROP TRIGGER IF EXISTS trg_update_call_status_after_assignment ON volunteer_call;
+
+CREATE TRIGGER trg_update_call_status_after_assignment
+AFTER INSERT
+ON volunteer_call
+FOR EACH ROW
+EXECUTE FUNCTION update_call_status_after_assignment();

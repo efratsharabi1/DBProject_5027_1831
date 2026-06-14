@@ -1,0 +1,50 @@
+CREATE OR REPLACE FUNCTION find_calls_without_volunteers()
+RETURNS REFCURSOR
+LANGUAGE plpgsql
+AS $$
+DECLARE
+
+    calls_cursor REFCURSOR := 'calls_without_volunteers_cursor';
+
+BEGIN
+
+    OPEN calls_cursor FOR
+
+        SELECT
+            c.call_id,
+            c.call_description,
+            c.call_date,
+            c.call_time,
+            c.priority_level,
+            ct.type_name
+
+        FROM call c
+
+        JOIN c_type ct
+            ON c.type_id = ct.type_id
+
+        WHERE NOT EXISTS
+        (
+            SELECT 1
+            FROM volunteer_call vc
+            WHERE vc.call_id = c.call_id
+        )
+
+        ORDER BY
+            c.priority_level DESC,
+            c.call_date;
+
+    RETURN calls_cursor;
+
+EXCEPTION
+
+    WHEN OTHERS THEN
+
+        RAISE NOTICE
+        'Error in find_calls_without_volunteers: %',
+        SQLERRM;
+
+        RETURN NULL;
+
+END;
+$$;

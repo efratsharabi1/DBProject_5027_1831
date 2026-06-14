@@ -1,4 +1,3 @@
-```sql
 CREATE OR REPLACE FUNCTION find_calls_without_volunteers()
 RETURNS REFCURSOR
 LANGUAGE plpgsql
@@ -57,4 +56,3 @@ EXCEPTION
 
 END;
 $$;
-```

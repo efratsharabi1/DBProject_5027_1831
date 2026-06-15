@@ -1459,14 +1459,134 @@ We can see that the calls were successfully assigned to volunteers, and their st
 <img width="1096" height="212" alt="image" src="https://github.com/user-attachments/assets/3556a7b3-008c-41bf-a673-300f6c83141a" />
 
 ---
+
 ## Main Program 2
+
+### Main Program Description
+The purpose of the second main program is to identify the most required skills in emergency calls and automatically create new training programs for skills that have the fewest qualified volunteers.
+
+Before running the main program, we can examine the `skill` and `training` tables to observe the initial state of the system.
+The `skill` table contains all existing skills and their current training status, while the `training` table contains all existing training programs. At this stage, we can see which skills already have training programs and which ones do not.
+These tables will later allow us to verify that the program successfully created new training programs and updated the relevant training statuses.
+
+<img width="867" height="570" alt="image" src="https://github.com/user-attachments/assets/9582ab27-41e0-43be-a417-6c1fb65d4d11" />
+<img width="557" height="582" alt="image" src="https://github.com/user-attachments/assets/09059bbe-6327-4d0c-823f-f35708db6b66" />
+
+### Step 1 – Calling the `find_top_required_skills` Function
+At the beginning of the main program, the following function is called:
+
+[find_top_required_skills.sql](./Phase4/Functions/find_top_required_skills.sql)
+
+The function returns a `REF CURSOR` containing the three most required skills in the system.
+For each skill, the function returns:
+
+* Skill ID (`skill_id`)
+* Skill name (`skill_name`)
+* Number of times the skill was required (`times_required`)
+
+For example:
+
+```text
+Tire      | 10114
+English   | 5065
+French    | 4999
+```
+
+This means that Tire is the most required skill in emergency calls, followed by English and French.
+
+<img width="518" height="176" alt="image" src="https://github.com/user-attachments/assets/3fa37466-312b-4209-977e-635fb4c3ff1a" />
+
+### Step 2 – Iterating Through the Skills
+
+The main program iterates (`LOOP`) through all skills returned by the function.
+For each skill, it prints:
+
+* Skill name
+* Number of times the skill was required
+
+For example:
+
+```text
+Processing skill Tire | Required 10114 times
+Processing skill English | Required 5065 times
+Processing skill French | Required 4999 times
+```
+
+### Step 3 – Calling the `generate_training_for_missing_skills` Procedure
+
+For each skill, the main program calls the following procedure:
+
+[generate_training_for_missing_skills.sql](./Phase4/Procedures/generate_training_for_missing_skills.sql)
+
+The purpose of this procedure is to determine whether a new training program should be created.
+The procedure performs the following steps:
+
+1. Counts the number of volunteers who have the skill.
+2. Ranks all skills according to the number of qualified volunteers.
+3. Selects the two skills with the fewest volunteers.
+4. Creates a new training program for these skills.
+5. Updates the `training_status` field in the `skill` table from **Not Planned** to **Planned**.
+
+### What Is Printed During the Procedure Execution?
+During the execution of the procedure, the following messages may be printed:
+
+```text
+Processing skill Tire | Required 10114 times
+Skill: Tire, Volunteers with this skill: 0
+Training status for skill Tire changed from Not Planned to Planned
+Training created for skill Tire
+
+Processing skill English | Required 5065 times
+Skill: English, Volunteers with this skill: 0
+Training status for skill English changed from Not Planned to Planned
+Training created for skill English
+
+Processing skill French | Required 4999 times
+Skill: French, Volunteers with this skill: 8
+Skill French is not among the two least common skills.
+No training needed.
+```
+
+This means:
+
+* Tire and English are highly required skills but have no qualified volunteers.
+* Therefore, new training programs are automatically created for these skills.
+* French already has enough volunteers, so no training program is created.
+
+<img width="792" height="341" alt="image" src="https://github.com/user-attachments/assets/d1bcae8f-1864-4415-8cdb-bd4c6598f7c3" />
+
+### Step 4 – Trigger Activation
+
+When the procedure creates a new training program, it updates the `training_status` field in the `skill` table.
+As soon as the `UPDATE` operation is performed, the following trigger is automatically activated:
+
+[trg_skill_training_status_update.sql](./Phase4/Triggers/trg_skill_training_status_update.sql)
+
+The purpose of the trigger is to notify that the training status has changed.
+
+For example:
+
+```text
+Training status for skill Tire changed from Not Planned to Planned
+Training status for skill English changed from Not Planned to Planned
+```
+
+This confirms that the new training programs were successfully created and the training status of the relevant skills was automatically updated by the trigger.
+
+### Verifying the Results
+
+After running the main program, we can verify that:
+
+1. New records were added to the `training` table.
+2. The `training_status` field in the `skill` table was updated to `Planned`.
+
+<img width="857" height="631" alt="image" src="https://github.com/user-attachments/assets/29b840f6-8403-40bb-9a7e-e8e8de9f7c54" />
+<img width="573" height="551" alt="image" src="https://github.com/user-attachments/assets/893fb87f-b7d1-4545-aed5-591b89119b13" />
+
+Therefore, we can conclude that the second main program successfully identified the most required skills, created new training programs, and automatically updated the system using an `AFTER UPDATE` trigger.
 
 ---
 ## Backup (phase 4)
-
-
-
-
 
 
 

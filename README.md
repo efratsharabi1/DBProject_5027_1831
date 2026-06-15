@@ -1589,6 +1589,4 @@ Therefore, we can conclude that the second main program successfully identified 
 ## Backup (phase 4)
 
 <img width="877" height="695" alt="image" src="https://github.com/user-attachments/assets/1e088590-1b57-44db-b216-0398a8a03cc6" />
-
-
-
+<img width="886" height="496" alt="image" src="https://github.com/user-attachments/assets/1b130743-44b0-42f0-9e6c-e6807a155049" />

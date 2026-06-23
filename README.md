@@ -1695,15 +1695,33 @@ The source code of the application can be found here:
 
 ---
 
-### Calls
+### Create Call
 
-![Calls](./Screenshots/Calls/calls.png)
+![Create Call](./Screenshots/Calls/create/create.png)
 
 ---
 
-### Trainings
+### Update Call
 
-![Trainings](./Screenshots/Trainings/trainings.png)
+![Update Call](./Screenshots/Calls/update/update.png)
+
+---
+
+### Delete Call
+
+![Delete Call](./Screenshots/Calls/delete/delete.png)
+
+---
+
+### Create Training
+
+![Create Training](./Screenshots/Trainings/create/create.png)
+
+---
+
+### Delete Training
+
+![Delete Training](./Screenshots/Trainings/delete/delete.png)
 
 ---
 

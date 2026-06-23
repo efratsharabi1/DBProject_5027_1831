@@ -45,6 +45,7 @@
   - [Development Process](#development-process)
   - [The Code](#the-code)
   - [Screenshots of the Application](#screenshots-of-the-application)
+  - [Short Demonstration Video](#Short-Demonstration-Video)
   - [Summary](#summary)
   
 ---
@@ -1819,6 +1820,11 @@ The Close Call procedure is responsible for completing an active emergency call.
 <img width="1395" height="517" alt="WhatsApp Image 2026-06-22 at 19 02 15" src="https://github.com/user-attachments/assets/ac747159-ec88-45dc-a438-8e4c412cc698" />
 
 ---
+## Short Demonstration Video
+
+A short demonstration video of the website and its main features is available below.
+
+[Website Tutorial Video](Phase5/Website-Tutorial-Video.mp4)
 
 ## Summary
 

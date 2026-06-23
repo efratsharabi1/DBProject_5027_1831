@@ -1615,8 +1615,7 @@ The application provides a user-friendly interface that allows the manager to pe
 
 Full running instructions can be found here:
 
-[Running Instructions](./Phase5/Running Instructions/System_User_Guide.md)
-
+[Running Instructions](./Phase5/Running%20Instructions/System_User_Guide.md)
 ---
 
 ## Development Process

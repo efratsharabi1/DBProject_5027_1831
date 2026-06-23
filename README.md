@@ -1667,6 +1667,9 @@ The source code of the application can be found here:
 
 ### Main Screen
 
+Displays the main modules of the system and provides quick access to call management, volunteer management, trainings, volunteer availability, volunteer assignments, and smart operations.
+
+<img width="1411" height="809" alt="WhatsApp Image 2026-06-22 at 19 49 42" src="https://github.com/user-attachments/assets/9af47734-db86-40fc-8999-2869de0459e5" />
 <img width="1511" height="827" alt="WhatsApp Image 2026-06-22 at 19 49 44 (1)" src="https://github.com/user-attachments/assets/55695e19-63e1-4dee-8c8d-e8e9a505b714" />
 
 ---

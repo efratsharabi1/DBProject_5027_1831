@@ -34,11 +34,19 @@
   - [View SQL](#View-SQL)
   - [Backup (phase 3)](#backup-(phase-3))
 
-- [Phase 4: PL/pgSQL Programs](#phase-4-PL/pgSQL-Programs)
+- [Phase 4: PL/pgSQL Programs](#phase-4-pl/pgsql-programs)
   - [Main Program 1](#Main-Program-1)
   - [Main Program 2](#Main-Program-2)
   - [Backup (phase 4)](#backup-(phase-4))
-    
+ 
+- [Phase 5: Graphical User Interface](#phase-5-graphical-user-interface)
+  - [Introduction](#introduction)
+  - [Running Instructions](#running-instructions)
+  - [Development Process](#development-process)
+  - [The Code](#the-code)
+  - [Screenshots of the Application](#screenshots-of-the-application)
+  - [Summary](#summary)
+  
 ---
 
 # Phase 1: Design and Build the Database
@@ -1590,3 +1598,144 @@ Therefore, we can conclude that the second main program successfully identified 
 
 <img width="877" height="695" alt="image" src="https://github.com/user-attachments/assets/1e088590-1b57-44db-b216-0398a8a03cc6" />
 <img width="886" height="496" alt="image" src="https://github.com/user-attachments/assets/1b130743-44b0-42f0-9e6c-e6807a155049" />
+
+
+
+# Phase 5: Graphical User Interface
+
+## Introduction
+
+This project presents a graphical user interface for managing volunteers and service calls in the Yedidim organization.
+The system enables centralized management of volunteers, service calls, training programs, volunteer availability, volunteer assignments, and smart system operations.
+The application provides a user-friendly interface that allows the manager to perform the required actions in a simple, clear, and efficient way.
+
+---
+
+## Running Instructions
+
+Full running instructions can be found here:
+
+[Running Instructions](./Running%20Instructions/System_User_Guide.md)
+
+---
+
+## Development Process
+
+The application was developed as the fifth stage of the database project.
+At the beginning of the work, an initial graphical interface was generated using Google AI, based on the screens and requirements defined in the first stage of the project.
+This initial interface was used as a starting point only. During the development process, we improved, changed, and adapted the interface until it matched the real requirements of the system and supported all required functionality.
+After the interface was ready, we connected the application to our PostgreSQL database, which is managed through pgAdmin. We then tested the system using the actual data from our database and verified that the screens, actions, queries, functions, and procedures worked correctly.
+We used Visual Studio Code as the main development environment. Google AI was used throughout the process to assist with writing, improving, editing, and debugging the code.
+
+### Tools and Technologies
+
+* React
+* TypeScript
+* TailwindCSS
+* PostgreSQL
+* pgAdmin 4
+* Visual Studio Code
+* Google AI
+
+### Main System Features
+
+The system supports:
+* Viewing data from the database.
+* Adding new records.
+* Updating existing records.
+* Deleting records.
+* Managing volunteers.
+* Managing service calls.
+* Managing training programs.
+* Managing volunteer availability.
+* Assigning volunteers to calls.
+* Running queries from Stage B.
+* Running functions and procedures from Stage D.
+* Displaying user-friendly information instead of internal database IDs.
+
+---
+
+## The Code
+
+---
+
+## Screenshots of the Application
+
+### Main Screen
+
+![Main Screen](./Screenshots/Main%20Screen/main_screen.png)
+
+---
+
+### Volunteer Management – Create
+
+![Create Volunteer](./Screenshots/Volunteer/create/create.png)
+
+---
+
+### Volunteer Management – Read
+
+![Read Volunteers](./Screenshots/Volunteer/read/read.png)
+
+---
+
+### Volunteer Management – Update
+
+![Update Volunteer](./Screenshots/Volunteer/update/update.png)
+
+---
+
+### Volunteer Management – Delete
+
+![Delete Volunteer](./Screenshots/Volunteer/delete/delete.png)
+
+---
+
+### Calls
+
+![Calls](./Screenshots/Calls/calls.png)
+
+---
+
+### Trainings
+
+![Trainings](./Screenshots/Trainings/trainings.png)
+
+---
+
+### Query – Find Available Volunteers
+
+![Query Find Available Volunteers](./Screenshots/Query%20%E2%80%93%20Find%20Available%20Volunteers/query.png)
+
+---
+
+### Query – Find the Outstanding Volunteer
+
+![Query Find Outstanding Volunteer](./Screenshots/Query%20%E2%80%93%20Find%20the%20Outstanding%20Volunteer/query.png)
+
+---
+
+### Function – Find Calls Without Assigned Volunteers
+
+![Function Find Calls Without Assigned Volunteers](./Screenshots/Function%20%E2%80%93%20Find%20Calls%20Without%20Assigned%20Volunteers/function.png)
+
+---
+
+### Procedure – Smart Volunteer Assignment
+
+![Procedure Smart Volunteer Assignment](./Screenshots/Procedure%20%E2%80%93%20Smart%20Volunteer%20Assignment/procedure.png)
+
+---
+
+### Procedure – Close Call
+
+![Procedure Close Call](./Screenshots/Procedure%20%E2%80%93%20Close%20Call/procedure.png)
+
+---
+
+## Summary
+
+The Yedidim Volunteer and Service Call Management System provides a complete graphical interface for the database project.
+The system connects the user interface to the PostgreSQL database and allows efficient management of volunteers, service calls, training programs, availability, assignments, queries, functions, and procedures.
+This stage demonstrates the connection between the database layer and a functional application interface, while focusing on usability, clear design, and practical system operation.
+

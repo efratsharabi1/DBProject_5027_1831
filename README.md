@@ -1678,10 +1678,10 @@ Displays the main modules of the system and provides quick access to call manage
 
 The administrator creates a new volunteer by entering personal details, skills, and availability information. After saving the volunteer, the system displays a success message indicating that the volunteer was added successfully. Finally, the volunteer Dan Asher can be found using the search bar and appears in the list of volunteers.
 
-<img width="1537" height="807" alt="WhatsApp Image 2026-06-22 at 18 48 27" src="https://github.com/user-attachments/assets/5caf6310-dacb-48ab-a3ad-916220db96c2" />
-<img width="1440" height="851" alt="WhatsApp Image 2026-06-22 at 18 48 25" src="https://github.com/user-attachments/assets/55ea6325-7668-4c36-8048-80e7c03aa067" />
-<img width="1600" height="684" alt="WhatsApp Image 2026-06-22 at 18 48 22" src="https://github.com/user-attachments/assets/08f3edab-5bca-4a13-bcef-f43aa4531acd" />
-<img width="1411" height="809" alt="WhatsApp Image 2026-06-22 at 19 49 42" src="https://github.com/user-attachments/assets/61bfe23f-9355-4e6e-9e58-f432e5407776" />
+<img width="1020" height="852" alt="WhatsApp Image 2026-06-22 at 18 48 29" src="https://github.com/user-attachments/assets/101a9b7b-bfa0-481b-b545-d9f13191226d" />
+<img width="1537" height="807" alt="WhatsApp Image 2026-06-22 at 18 48 27" src="https://github.com/user-attachments/assets/ddfee733-aa8f-4c43-a32e-7fd59b010a54" />
+<img width="1440" height="851" alt="WhatsApp Image 2026-06-22 at 18 48 25" src="https://github.com/user-attachments/assets/4d86f97f-efc2-4f07-b9e2-c5708f7bcca7" />
+<img width="1600" height="684" alt="WhatsApp Image 2026-06-22 at 18 48 22" src="https://github.com/user-attachments/assets/efd13fa4-8d12-456c-9930-8a90e0b4e5be" />
 
 ---
 
@@ -1689,21 +1689,21 @@ The administrator creates a new volunteer by entering personal details, skills, 
 
 The system allows filtering volunteers according to their availability status. The administrator can display available, busy, unavailable, or all volunteers and quickly locate specific volunteers using the search bar.
 
-<img width="1600" height="690" alt="WhatsApp Image 2026-06-22 at 18 51 42" src="https://github.com/user-attachments/assets/4442fbcb-ac94-46f5-a44b-eb39ab958ab1" />
-<img width="1550" height="771" alt="WhatsApp Image 2026-06-22 at 18 51 39" src="https://github.com/user-attachments/assets/3f605cd1-462e-4355-beb6-241e4815ba36" />
-<img width="1600" height="705" alt="WhatsApp Image 2026-06-22 at 18 51 36" src="https://github.com/user-attachments/assets/7af26e5f-c30f-475f-b464-725f5650abbd" />
+<img width="1600" height="705" alt="WhatsApp Image 2026-06-22 at 18 51 36" src="https://github.com/user-attachments/assets/c0f5de09-a11d-4eb3-9ebb-f7caddc22c3f" />
+<img width="1550" height="771" alt="WhatsApp Image 2026-06-22 at 18 51 39" src="https://github.com/user-attachments/assets/671cc11d-c185-49b1-ba0d-22a0f0106e42" />
+<img width="1600" height="690" alt="WhatsApp Image 2026-06-22 at 18 51 42" src="https://github.com/user-attachments/assets/30969f93-bf44-4b1b-b88e-0ec8da4d1969" />
 
 ---
 
 ### Volunteer Management – Update
 
-The administrator selects an existing volunteer and opens the update window. The volunteer's details are loaded automatically, and the administrator can modify information such as address, availability, or personal details. After saving, the system displays a success message confirming that the volunteer was updated successfully, and the updated information appears in the volunteer list.
+The administrator selects an existing volunteer and opens the update window. The volunteer's details are loaded automatically, and the administrator edits the volunteer's address from "Unknown Address" to "Alon". After saving the changes, the system displays a success message confirming that the volunteer was updated successfully. Returning to the volunteer list, the updated address "Alon" is displayed, demonstrating that the changes were saved correctly in the system.
 
-<img width="969" height="848" alt="WhatsApp Image 2026-06-22 at 18 50 12" src="https://github.com/user-attachments/assets/e2b05e2d-b2f5-48d6-8505-c6922ee6e449" />
-<img width="1600" height="705" alt="WhatsApp Image 2026-06-22 at 18 51 36 (1)" src="https://github.com/user-attachments/assets/ea5d8994-d5be-49d4-8864-06e1bf44bb92" />
-<img width="1600" height="690" alt="WhatsApp Image 2026-06-22 at 18 51 42" src="https://github.com/user-attachments/assets/0f8917a2-274e-4a9b-864e-1108fd964ddc" />
-<img width="1550" height="771" alt="WhatsApp Image 2026-06-22 at 18 51 39" src="https://github.com/user-attachments/assets/56bf4338-a172-4e08-a3e9-092de30e8dd4" />
-<img width="1600" height="705" alt="WhatsApp Image 2026-06-22 at 18 51 36" src="https://github.com/user-attachments/assets/88fa1f09-b3f4-4128-bb2a-5003d49a242c" />
+<img width="1600" height="836" alt="WhatsApp Image 2026-06-22 at 18 48 33" src="https://github.com/user-attachments/assets/83f3a81b-9078-477e-a6bf-e5725327a014" />
+<img width="969" height="848" alt="WhatsApp Image 2026-06-22 at 18 50 12" src="https://github.com/user-attachments/assets/36369266-43ab-4a44-95de-9846762fbaae" />
+<img width="1165" height="818" alt="WhatsApp Image 2026-06-22 at 18 50 13" src="https://github.com/user-attachments/assets/b13666ae-df41-4bb9-9168-bc6beca4da23" />
+<img width="816" height="771" alt="WhatsApp Image 2026-06-22 at 18 50 15" src="https://github.com/user-attachments/assets/555a5322-3857-4414-9d03-ba8832063fe0" />
+<img width="1259" height="762" alt="WhatsApp Image 2026-06-22 at 18 50 17" src="https://github.com/user-attachments/assets/cd561da4-714b-4098-b156-704756c5fcc8" />
 
 ---
 
@@ -1711,9 +1711,10 @@ The administrator selects an existing volunteer and opens the update window. The
 
 The administrator selects a volunteer and clicks the delete button. The system marks the volunteer for deletion and displays a success message confirming that the volunteer was removed successfully. The volunteer is then removed from the list of volunteers.
 
-<img width="1600" height="690" alt="WhatsApp Image 2026-06-22 at 18 51 42" src="https://github.com/user-attachments/assets/7125be7e-0861-42d4-9d3a-3b3b6c4188a4" />
-<img width="1550" height="771" alt="WhatsApp Image 2026-06-22 at 18 51 39" src="https://github.com/user-attachments/assets/d9110926-6ecf-4435-b842-0e37264535d8" />
-<img width="1600" height="705" alt="WhatsApp Image 2026-06-22 at 18 51 36" src="https://github.com/user-attachments/assets/ef72feb9-7699-486c-b6dc-06ca8caa3bfa" />
+<img width="1557" height="664" alt="WhatsApp Image 2026-06-22 at 18 50 55" src="https://github.com/user-attachments/assets/c8b49aff-4214-4a39-9ace-673f64ae3989" />
+<img width="1510" height="656" alt="WhatsApp Image 2026-06-22 at 18 50 50" src="https://github.com/user-attachments/assets/88e9d6e9-b7ef-4b77-a7b3-1e4268eee4ac" />
+<img width="1600" height="757" alt="WhatsApp Image 2026-06-22 at 18 50 57" src="https://github.com/user-attachments/assets/42642785-d1d2-46a3-ab80-334ba03d3730" />
+
 
 ---
 
@@ -1721,21 +1722,22 @@ The administrator selects a volunteer and clicks the delete button. The system m
 
 The administrator opens the call creation form and enters the call details, including location, caller information, emergency level, call type, and optional description or image. After saving, the new call is added successfully and immediately appears on the call board.
 
-<img width="734" height="666" alt="WhatsApp Image 2026-06-22 at 18 53 51" src="https://github.com/user-attachments/assets/ec8a3170-c34a-4765-b5ef-cf2c51f2f2a4" />
-<img width="734" height="666" alt="WhatsApp Image 2026-06-22 at 18 53 51" src="https://github.com/user-attachments/assets/dd93e84c-f18d-4893-aa7b-ee418eb2f841" />
-<img width="764" height="856" alt="WhatsApp Image 2026-06-22 at 18 53 44" src="https://github.com/user-attachments/assets/ff6ba693-73c4-437d-a2d4-4342c9e9f7bb" />
-<img width="1543" height="857" alt="WhatsApp Image 2026-06-22 at 18 53 40" src="https://github.com/user-attachments/assets/d562e360-421a-41b6-ad68-f92d9f01c9bb" />
+<img width="1543" height="857" alt="WhatsApp Image 2026-06-22 at 18 53 40" src="https://github.com/user-attachments/assets/7dbc9282-49ae-48b5-bd50-6e131708dc2a" />
+<img width="764" height="856" alt="WhatsApp Image 2026-06-22 at 18 53 44" src="https://github.com/user-attachments/assets/8f670d04-b092-4270-884e-da579596a7a0" />
+<img width="768" height="852" alt="WhatsApp Image 2026-06-22 at 18 53 48" src="https://github.com/user-attachments/assets/afdaa368-d797-499a-9c70-cb3af0bae6d8" />
+<img width="734" height="666" alt="WhatsApp Image 2026-06-22 at 18 53 51" src="https://github.com/user-attachments/assets/e93fd287-0fc3-4f87-998a-690d1a79408f" />
 
 ---
 
 ### Update Call
 
-The administrator selects an existing call and opens the update form. The current call details are loaded automatically, including the caller's information, location, emergency level, and call type. In this example, the caller's name was updated from Dani Levi to Yossi Cohen. After saving, the updated information is displayed immediately on the call board.
+The administrator selects an existing call and opens the update form. The current call details are loaded automatically, including the caller's information, location, emergency level, and call type. In this example, the caller's name was updated from Yossi Cohen to Dani Levi. After saving the changes, the call board is refreshed immediately, and the updated caller name Dani Levi is displayed on the call card, confirming that the update was successfully applied.
 
-<img width="734" height="666" alt="WhatsApp Image 2026-06-22 at 18 53 51" src="https://github.com/user-attachments/assets/c9c103bc-7cb1-471d-9467-bf9ef5f5d37e" />
-<img width="768" height="852" alt="WhatsApp Image 2026-06-22 at 18 53 48" src="https://github.com/user-attachments/assets/a2e3c225-2a38-480c-81d2-5f5dfcde9a35" />
-<img width="764" height="856" alt="WhatsApp Image 2026-06-22 at 18 53 44" src="https://github.com/user-attachments/assets/b371f5c4-1a09-4ea2-8420-cbf379719377" />
-<img width="1543" height="857" alt="WhatsApp Image 2026-06-22 at 18 53 40" src="https://github.com/user-attachments/assets/5584ab89-0224-4f31-b40b-1cc6987be94f" />
+<img width="501" height="653" alt="WhatsApp Image 2026-06-22 at 18 56 28" src="https://github.com/user-attachments/assets/4f058515-c5d4-4888-a75f-2db24bc5e7f4" />
+<img width="1127" height="860" alt="WhatsApp Image 2026-06-22 at 18 56 30" src="https://github.com/user-attachments/assets/4a661839-9347-48e0-af8d-289e97cce836" />
+<img width="1081" height="854" alt="WhatsApp Image 2026-06-22 at 18 56 33" src="https://github.com/user-attachments/assets/d1ac3a40-3e8d-483d-9f95-89136c47c723" />
+<img width="514" height="641" alt="WhatsApp Image 2026-06-22 at 18 56 36" src="https://github.com/user-attachments/assets/6bcb6160-fe27-49c3-978b-33a96c0e7742" />
+
 
 ---
 
@@ -1743,9 +1745,10 @@ The administrator selects an existing call and opens the update form. The curren
 
 The administrator selects an existing call and clicks the delete button. The system asks for confirmation before deleting the call. After the deletion is confirmed, the call is removed successfully and no longer appears on the call board.
 
-<img width="768" height="852" alt="WhatsApp Image 2026-06-22 at 18 53 48" src="https://github.com/user-attachments/assets/f47a3eed-00d5-4ab6-bf86-282231d1d74b" />
-<img width="764" height="856" alt="WhatsApp Image 2026-06-22 at 18 53 44" src="https://github.com/user-attachments/assets/445bf26c-f912-4e86-bdc5-0c71da435317" />
-<img width="1543" height="857" alt="WhatsApp Image 2026-06-22 at 18 53 40" src="https://github.com/user-attachments/assets/b589f221-04d0-457f-b3ed-7188d5cc600e" />
+<img width="480" height="648" alt="WhatsApp Image 2026-06-22 at 18 57 24" src="https://github.com/user-attachments/assets/cbb90b75-c62c-4ae5-bd95-6e7298a2fa58" />
+<img width="476" height="644" alt="WhatsApp Image 2026-06-22 at 18 57 26" src="https://github.com/user-attachments/assets/96b42767-7ad9-4f81-ada5-972053bb7292" />
+<img width="1435" height="692" alt="WhatsApp Image 2026-06-22 at 18 57 29" src="https://github.com/user-attachments/assets/6c214523-c5fc-422e-9d15-37a316722f07" />
+
 
 ---
 
@@ -1753,8 +1756,8 @@ The administrator selects an existing call and clicks the delete button. The sys
 
 The administrator opens the training creation form and enters the training details, including the training name, description, maximum number of participants, and duration. After saving, the new training is added successfully and appears in the list of trainings.
 
-<img width="764" height="856" alt="WhatsApp Image 2026-06-22 at 18 53 44" src="https://github.com/user-attachments/assets/ddddf3cd-94b3-455f-b133-fa1f7b9cca5e" />
-<img width="1543" height="857" alt="WhatsApp Image 2026-06-22 at 18 53 40" src="https://github.com/user-attachments/assets/fc68cb92-b6c6-4eb0-9fc4-c077e99903cc" />
+<img width="1288" height="763" alt="WhatsApp Image 2026-06-22 at 19 59 16" src="https://github.com/user-attachments/assets/383be6d1-f51e-4de1-8ff7-451e97148fda" />
+<img width="1426" height="223" alt="WhatsApp Image 2026-06-22 at 19 59 21" src="https://github.com/user-attachments/assets/3c2048e0-817f-47ff-aa57-9d87df9d08ec" />
 
 ---
 
@@ -1762,9 +1765,9 @@ The administrator opens the training creation form and enters the training detai
 
 The administrator selects an existing training and clicks the delete button. The system displays a confirmation dialog asking whether to delete the training. After confirming the action, the training is removed successfully and no longer appears in the list of trainings.
 
-<img width="768" height="852" alt="WhatsApp Image 2026-06-22 at 18 53 48" src="https://github.com/user-attachments/assets/6563df5f-34f7-4563-bf08-29ad760ac985" />
-<img width="764" height="856" alt="WhatsApp Image 2026-06-22 at 18 53 44" src="https://github.com/user-attachments/assets/7aa936eb-683e-4af5-949e-bac1ebe1df1c" />
-<img width="1543" height="857" alt="WhatsApp Image 2026-06-22 at 18 53 40" src="https://github.com/user-attachments/assets/2e344daa-eaae-40a4-9eff-2875537c34d1" />
+<img width="1509" height="322" alt="WhatsApp Image 2026-06-22 at 20 08 33" src="https://github.com/user-attachments/assets/a036caf8-480e-4964-a8df-c00e3094404c" />
+<img width="1558" height="590" alt="WhatsApp Image 2026-06-22 at 20 08 36" src="https://github.com/user-attachments/assets/ce70d948-ccaa-4bbd-bbbc-f66bcd7ece43" />
+<img width="1599" height="526" alt="WhatsApp Image 2026-06-22 at 20 08 39" src="https://github.com/user-attachments/assets/89e3a638-352e-417a-9c29-a7cc8360cc42" />
 
 ---
 
@@ -1788,19 +1791,32 @@ The system includes an automatic feature for identifying the outstanding volunte
 
 ### Function – Find Calls Without Assigned Volunteers
 
-![Function Find Calls Without Assigned Volunteers](./Screenshots/Function%20%E2%80%93%20Find%20Calls%20Without%20Assigned%20Volunteers/function.png)
+The system includes a function for finding emergency calls that have not yet been assigned to a volunteer. The results table displays all unassigned calls, including the call type, location, and urgency level. This feature helps identify calls that still require volunteer assignment and enables faster response management.
+
+<img width="1482" height="605" alt="WhatsApp Image 2026-06-22 at 19 03 51" src="https://github.com/user-attachments/assets/c516b9ba-68f6-42f1-94f8-1831cde9dde0" />
+<img width="1040" height="446" alt="WhatsApp Image 2026-06-22 at 19 03 49" src="https://github.com/user-attachments/assets/f4ce0bce-1c26-4228-a0b2-b350f6471d86" />
 
 ---
 
 ### Procedure – Smart Volunteer Assignment
 
-![Procedure Smart Volunteer Assignment](./Screenshots/Procedure%20%E2%80%93%20Smart%20Volunteer%20Assignment/procedure.png)
+The Smart Assignment procedure automatically selects the most suitable volunteer for an emergency call based on matching criteria such as location and relevant skills. The system first calculates compatibility scores for all available volunteers and displays the ranked results. After the assignment is completed, the selected volunteer's status is automatically updated from Available to Busy, and the call status changes from Waiting to In Treatment.
+
+<img width="493" height="673" alt="WhatsApp Image 2026-06-22 at 18 59 45" src="https://github.com/user-attachments/assets/87a4f39f-ad3e-4821-a667-7cd2f0fb337a" />
+<img width="1412" height="780" alt="WhatsApp Image 2026-06-22 at 18 59 49" src="https://github.com/user-attachments/assets/d58bb4a1-de2d-45e9-9a7b-468718427474" />
+<img width="1384" height="862" alt="WhatsApp Image 2026-06-22 at 18 59 53" src="https://github.com/user-attachments/assets/98fb03c6-46a4-4856-b71d-f6cc3df2010a" />
+<img width="1578" height="719" alt="WhatsApp Image 2026-06-22 at 19 01 57" src="https://github.com/user-attachments/assets/6fcad7d6-861b-4c4f-a153-302ed1137d1b" />
+<img width="1437" height="543" alt="WhatsApp Image 2026-06-22 at 19 01 59" src="https://github.com/user-attachments/assets/5f4183b6-7b94-4880-aff1-bc1519a00cf5" />
 
 ---
 
 ### Procedure – Close Call
 
-![Procedure Close Call](./Screenshots/Procedure%20%E2%80%93%20Close%20Call/procedure.png)
+The Close Call procedure is responsible for completing an active emergency call. After the call is successfully closed, the call is removed from the list of calls under treatment, and the assigned volunteer becomes available for new assignments again. In the example shown, the volunteer Adolphus Scopes was initially marked as Busy while handling the call "Stuck In Elevator". After the call was closed, his status was automatically updated back to Available.
+
+<img width="470" height="706" alt="WhatsApp Image 2026-06-22 at 19 02 10" src="https://github.com/user-attachments/assets/76437e20-cffc-4f70-aa9d-507103caba2b" />
+<img width="1445" height="685" alt="WhatsApp Image 2026-06-22 at 19 02 13" src="https://github.com/user-attachments/assets/e91588a7-ed85-4460-bd5f-0a4af54068ca" />
+<img width="1395" height="517" alt="WhatsApp Image 2026-06-22 at 19 02 15" src="https://github.com/user-attachments/assets/ac747159-ec88-45dc-a438-8e4c412cc698" />
 
 ---
 

@@ -1676,67 +1676,113 @@ Displays the main modules of the system and provides quick access to call manage
 
 ### Volunteer Management – Create
 
-![Create Volunteer](./Screenshots/Volunteer/create/create.png)
+The administrator creates a new volunteer by entering personal details, skills, and availability information. After saving the volunteer, the system displays a success message indicating that the volunteer was added successfully. Finally, the volunteer Dan Asher can be found using the search bar and appears in the list of volunteers.
+
+<img width="1537" height="807" alt="WhatsApp Image 2026-06-22 at 18 48 27" src="https://github.com/user-attachments/assets/5caf6310-dacb-48ab-a3ad-916220db96c2" />
+<img width="1440" height="851" alt="WhatsApp Image 2026-06-22 at 18 48 25" src="https://github.com/user-attachments/assets/55ea6325-7668-4c36-8048-80e7c03aa067" />
+<img width="1600" height="684" alt="WhatsApp Image 2026-06-22 at 18 48 22" src="https://github.com/user-attachments/assets/08f3edab-5bca-4a13-bcef-f43aa4531acd" />
+<img width="1411" height="809" alt="WhatsApp Image 2026-06-22 at 19 49 42" src="https://github.com/user-attachments/assets/61bfe23f-9355-4e6e-9e58-f432e5407776" />
 
 ---
 
 ### Volunteer Management – Read
 
-![Read Volunteers](./Screenshots/Volunteer/read/read.png)
+The system allows filtering volunteers according to their availability status. The administrator can display available, busy, unavailable, or all volunteers and quickly locate specific volunteers using the search bar.
+
+<img width="1600" height="690" alt="WhatsApp Image 2026-06-22 at 18 51 42" src="https://github.com/user-attachments/assets/4442fbcb-ac94-46f5-a44b-eb39ab958ab1" />
+<img width="1550" height="771" alt="WhatsApp Image 2026-06-22 at 18 51 39" src="https://github.com/user-attachments/assets/3f605cd1-462e-4355-beb6-241e4815ba36" />
+<img width="1600" height="705" alt="WhatsApp Image 2026-06-22 at 18 51 36" src="https://github.com/user-attachments/assets/7af26e5f-c30f-475f-b464-725f5650abbd" />
 
 ---
 
 ### Volunteer Management – Update
 
-![Update Volunteer](./Screenshots/Volunteer/update/update.png)
+The administrator selects an existing volunteer and opens the update window. The volunteer's details are loaded automatically, and the administrator can modify information such as address, availability, or personal details. After saving, the system displays a success message confirming that the volunteer was updated successfully, and the updated information appears in the volunteer list.
+
+<img width="969" height="848" alt="WhatsApp Image 2026-06-22 at 18 50 12" src="https://github.com/user-attachments/assets/e2b05e2d-b2f5-48d6-8505-c6922ee6e449" />
+<img width="1600" height="705" alt="WhatsApp Image 2026-06-22 at 18 51 36 (1)" src="https://github.com/user-attachments/assets/ea5d8994-d5be-49d4-8864-06e1bf44bb92" />
+<img width="1600" height="690" alt="WhatsApp Image 2026-06-22 at 18 51 42" src="https://github.com/user-attachments/assets/0f8917a2-274e-4a9b-864e-1108fd964ddc" />
+<img width="1550" height="771" alt="WhatsApp Image 2026-06-22 at 18 51 39" src="https://github.com/user-attachments/assets/56bf4338-a172-4e08-a3e9-092de30e8dd4" />
+<img width="1600" height="705" alt="WhatsApp Image 2026-06-22 at 18 51 36" src="https://github.com/user-attachments/assets/88fa1f09-b3f4-4128-bb2a-5003d49a242c" />
 
 ---
 
 ### Volunteer Management – Delete
 
-![Delete Volunteer](./Screenshots/Volunteer/delete/delete.png)
+The administrator selects a volunteer and clicks the delete button. The system marks the volunteer for deletion and displays a success message confirming that the volunteer was removed successfully. The volunteer is then removed from the list of volunteers.
+
+<img width="1600" height="690" alt="WhatsApp Image 2026-06-22 at 18 51 42" src="https://github.com/user-attachments/assets/7125be7e-0861-42d4-9d3a-3b3b6c4188a4" />
+<img width="1550" height="771" alt="WhatsApp Image 2026-06-22 at 18 51 39" src="https://github.com/user-attachments/assets/d9110926-6ecf-4435-b842-0e37264535d8" />
+<img width="1600" height="705" alt="WhatsApp Image 2026-06-22 at 18 51 36" src="https://github.com/user-attachments/assets/ef72feb9-7699-486c-b6dc-06ca8caa3bfa" />
 
 ---
 
 ### Create Call
 
-![Create Call](./Screenshots/Calls/create/create.png)
+The administrator opens the call creation form and enters the call details, including location, caller information, emergency level, call type, and optional description or image. After saving, the new call is added successfully and immediately appears on the call board.
+
+<img width="734" height="666" alt="WhatsApp Image 2026-06-22 at 18 53 51" src="https://github.com/user-attachments/assets/ec8a3170-c34a-4765-b5ef-cf2c51f2f2a4" />
+<img width="734" height="666" alt="WhatsApp Image 2026-06-22 at 18 53 51" src="https://github.com/user-attachments/assets/dd93e84c-f18d-4893-aa7b-ee418eb2f841" />
+<img width="764" height="856" alt="WhatsApp Image 2026-06-22 at 18 53 44" src="https://github.com/user-attachments/assets/ff6ba693-73c4-437d-a2d4-4342c9e9f7bb" />
+<img width="1543" height="857" alt="WhatsApp Image 2026-06-22 at 18 53 40" src="https://github.com/user-attachments/assets/d562e360-421a-41b6-ad68-f92d9f01c9bb" />
 
 ---
 
 ### Update Call
 
-![Update Call](./Screenshots/Calls/update/update.png)
+The administrator selects an existing call and opens the update form. The current call details are loaded automatically, including the caller's information, location, emergency level, and call type. In this example, the caller's name was updated from Dani Levi to Yossi Cohen. After saving, the updated information is displayed immediately on the call board.
+
+<img width="734" height="666" alt="WhatsApp Image 2026-06-22 at 18 53 51" src="https://github.com/user-attachments/assets/c9c103bc-7cb1-471d-9467-bf9ef5f5d37e" />
+<img width="768" height="852" alt="WhatsApp Image 2026-06-22 at 18 53 48" src="https://github.com/user-attachments/assets/a2e3c225-2a38-480c-81d2-5f5dfcde9a35" />
+<img width="764" height="856" alt="WhatsApp Image 2026-06-22 at 18 53 44" src="https://github.com/user-attachments/assets/b371f5c4-1a09-4ea2-8420-cbf379719377" />
+<img width="1543" height="857" alt="WhatsApp Image 2026-06-22 at 18 53 40" src="https://github.com/user-attachments/assets/5584ab89-0224-4f31-b40b-1cc6987be94f" />
 
 ---
 
 ### Delete Call
 
-![Delete Call](./Screenshots/Calls/delete/delete.png)
+The administrator selects an existing call and clicks the delete button. The system asks for confirmation before deleting the call. After the deletion is confirmed, the call is removed successfully and no longer appears on the call board.
+
+<img width="768" height="852" alt="WhatsApp Image 2026-06-22 at 18 53 48" src="https://github.com/user-attachments/assets/f47a3eed-00d5-4ab6-bf86-282231d1d74b" />
+<img width="764" height="856" alt="WhatsApp Image 2026-06-22 at 18 53 44" src="https://github.com/user-attachments/assets/445bf26c-f912-4e86-bdc5-0c71da435317" />
+<img width="1543" height="857" alt="WhatsApp Image 2026-06-22 at 18 53 40" src="https://github.com/user-attachments/assets/b589f221-04d0-457f-b3ed-7188d5cc600e" />
 
 ---
 
 ### Create Training
 
-![Create Training](./Screenshots/Trainings/create/create.png)
+The administrator opens the training creation form and enters the training details, including the training name, description, maximum number of participants, and duration. After saving, the new training is added successfully and appears in the list of trainings.
+
+<img width="764" height="856" alt="WhatsApp Image 2026-06-22 at 18 53 44" src="https://github.com/user-attachments/assets/ddddf3cd-94b3-455f-b133-fa1f7b9cca5e" />
+<img width="1543" height="857" alt="WhatsApp Image 2026-06-22 at 18 53 40" src="https://github.com/user-attachments/assets/fc68cb92-b6c6-4eb0-9fc4-c077e99903cc" />
 
 ---
 
 ### Delete Training
 
-![Delete Training](./Screenshots/Trainings/delete/delete.png)
+The administrator selects an existing training and clicks the delete button. The system displays a confirmation dialog asking whether to delete the training. After confirming the action, the training is removed successfully and no longer appears in the list of trainings.
+
+<img width="768" height="852" alt="WhatsApp Image 2026-06-22 at 18 53 48" src="https://github.com/user-attachments/assets/6563df5f-34f7-4563-bf08-29ad760ac985" />
+<img width="764" height="856" alt="WhatsApp Image 2026-06-22 at 18 53 44" src="https://github.com/user-attachments/assets/7aa936eb-683e-4af5-949e-bac1ebe1df1c" />
+<img width="1543" height="857" alt="WhatsApp Image 2026-06-22 at 18 53 40" src="https://github.com/user-attachments/assets/2e344daa-eaae-40a4-9eff-2875537c34d1" />
 
 ---
 
 ### Query – Find Available Volunteers
 
-![Query Find Available Volunteers](./Screenshots/Query%20%E2%80%93%20Find%20Available%20Volunteers/query.png)
+The system allows managing volunteers' availability schedules. In this screen, the administrator can view all defined availability slots, including the volunteer's name, day of the week, start time, end time, and availability area. New availability slots can be added, and existing ones can be updated or deleted.
+
+<img width="812" height="713" alt="WhatsApp Image 2026-06-22 at 19 10 28" src="https://github.com/user-attachments/assets/ec91ef15-1cb6-4496-aeeb-aa65237a7bcc" />
+<img width="1600" height="688" alt="WhatsApp Image 2026-06-22 at 19 10 26" src="https://github.com/user-attachments/assets/d850dc01-47d3-4bc5-a233-0a727cd33ab4" />
 
 ---
 
 ### Query – Find the Outstanding Volunteer
 
-![Query Find Outstanding Volunteer](./Screenshots/Query%20%E2%80%93%20Find%20the%20Outstanding%20Volunteer/query.png)
+The system includes an automatic feature for identifying the outstanding volunteer. The result shows that Aaren Petow is the outstanding volunteer, having successfully handled 2 emergency calls, which is the highest number among all volunteers in the system.
+
+<img width="908" height="482" alt="WhatsApp Image 2026-06-22 at 19 04 28" src="https://github.com/user-attachments/assets/b05b00a7-41b4-4171-8782-a95c64aa8fe8" />
+<img width="1403" height="443" alt="WhatsApp Image 2026-06-22 at 19 04 32" src="https://github.com/user-attachments/assets/e94cb967-44f3-4c49-a0cd-feabdf0040c9" />
 
 ---
 

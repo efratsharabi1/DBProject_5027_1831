@@ -1614,7 +1614,10 @@ The application provides a user-friendly interface that allows the manager to pe
 ## Running Instructions
 
 Full running instructions can be found here:
-[Running Instructions](./Phase5/Running%20Instructions/System_User_Guide.md)---
+
+[Running Instructions](./Phase5/Running%20Instructions/System_User_Guide.md)
+
+---
 
 ## Development Process
 
@@ -1655,6 +1658,7 @@ The system supports:
 ## The Code
 
 The source code of the application can be found here:
+
 [Application Source Code](./Phase5/Application/src.zip)
 
 ---
@@ -1663,7 +1667,7 @@ The source code of the application can be found here:
 
 ### Main Screen
 
-![Main Screen](./Screenshots/Main%20Screen/main_screen.png)
+<img width="1511" height="827" alt="WhatsApp Image 2026-06-22 at 19 49 44 (1)" src="https://github.com/user-attachments/assets/55695e19-63e1-4dee-8c8d-e8e9a505b714" />
 
 ---
 

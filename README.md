@@ -1615,7 +1615,7 @@ The application provides a user-friendly interface that allows the manager to pe
 
 Full running instructions can be found here:
 
-[Running Instructions](./Running%20Instructions/System_User_Guide.md)
+[Running Instructions](./Running-Instructions/System_User_Guide.md)
 
 ---
 
@@ -1656,6 +1656,10 @@ The system supports:
 ---
 
 ## The Code
+
+The source code of the application can be found here:
+
+[Application Source Code](./Application/src.zip)
 
 ---
 

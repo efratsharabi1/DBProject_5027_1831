@@ -1824,7 +1824,9 @@ The Close Call procedure is responsible for completing an active emergency call.
 
 A short demonstration video of the website and its main features is available below.
 
-[Website Tutorial Video](Phase5/Website-Tutorial-Video.mp4)
+[Watch the demonstration video](Phase5/Website-Tutorial-Video.mp4)
+
+---
 
 ## Summary
 

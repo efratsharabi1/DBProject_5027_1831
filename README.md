@@ -1614,9 +1614,7 @@ The application provides a user-friendly interface that allows the manager to pe
 ## Running Instructions
 
 Full running instructions can be found here:
-
-[Running Instructions](./Phase5/Running%20Instructions/System_User_Guide.md)
----
+[Running Instructions](./Phase5/Running%20Instructions/System_User_Guide.md)---
 
 ## Development Process
 
@@ -1657,7 +1655,6 @@ The system supports:
 ## The Code
 
 The source code of the application can be found here:
-
 [Application Source Code](./Phase5/Application/src.zip)
 
 ---
